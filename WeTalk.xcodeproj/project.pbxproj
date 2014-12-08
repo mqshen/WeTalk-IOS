@@ -1,0 +1,788 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F11EFD6C1A3469CB00C1D274 /* ThumbImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */; };
+		F11EFD6E1A34827B00C1D274 /* MessgeContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */; };
+		F11EFD701A34927B00C1D274 /* ImageMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */; };
+		F1288DBA1A24525B007B009C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DB91A24525B007B009C /* AppDelegate.swift */; };
+		F1288DBD1A24525B007B009C /* WeTalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F1288DBB1A24525B007B009C /* WeTalk.xcdatamodeld */; };
+		F1288DBF1A24525B007B009C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DBE1A24525B007B009C /* ViewController.swift */; };
+		F1288DC21A24525B007B009C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1288DC01A24525B007B009C /* Main.storyboard */; };
+		F1288DC41A24525B007B009C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1288DC31A24525B007B009C /* Images.xcassets */; };
+		F1288DC71A24525B007B009C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1288DC51A24525B007B009C /* LaunchScreen.xib */; };
+		F1288DD31A24525B007B009C /* WeTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DD21A24525B007B009C /* WeTalkTests.swift */; };
+		F1288DDD1A245368007B009C /* util.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DDC1A245368007B009C /* util.swift */; };
+		F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DE01A2455C5007B009C /* InputFieldCell.swift */; };
+		F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3A1A246CB1007B009C /* TcpClient.swift */; };
+		F1288E401A247C37007B009C /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3F1A247C37007B009C /* Serializable.swift */; };
+		F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96011A29FB99001057B0 /* RecentViewController.swift */; };
+		F13F96041A29FC79001057B0 /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96031A29FC79001057B0 /* ChatViewCell.swift */; };
+		F13F96061A29FE84001057B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96051A29FE84001057B0 /* Message.swift */; };
+		F13F96081A2A02C6001057B0 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96071A2A02C6001057B0 /* MessageViewController.swift */; };
+		F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96091A2A0321001057B0 /* MessagesInputToolbar.swift */; };
+		F13F960C1A2A034F001057B0 /* MessagesComposerTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F960B1A2A034F001057B0 /* MessagesComposerTextView.swift */; };
+		F13F960F1A2A0446001057B0 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F960E1A2A0446001057B0 /* BadgeView.swift */; };
+		F13F96111A2A0C75001057B0 /* MessageKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96101A2A0C75001057B0 /* MessageKeyboardController.swift */; };
+		F13F96131A2A0D02001057B0 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96121A2A0D02001057B0 /* MessageCell.swift */; };
+		F13F96151A2A0F66001057B0 /* MessageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96141A2A0F66001057B0 /* MessageTextView.swift */; };
+		F13F96171A2A0FAA001057B0 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96161A2A0FAA001057B0 /* ContactsViewController.swift */; };
+		F13F96191A2A119A001057B0 /* ContactViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96181A2A119A001057B0 /* ContactViewCell.swift */; };
+		F13F961D1A2A1B27001057B0 /* PersistenceProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F961B1A2A1B27001057B0 /* PersistenceProcessor.swift */; };
+		F13F961E1A2A1B27001057B0 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F961C1A2A1B27001057B0 /* SQLiteDB.swift */; };
+		F13F96201A2A1B5A001057B0 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F13F961F1A2A1B5A001057B0 /* libsqlite3.0.dylib */; };
+		F13F962E1A2AE7C7001057B0 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F96261A2AE7C7001057B0 /* add@2x.png */; };
+		F13F962F1A2AE7C7001057B0 /* room@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F96271A2AE7C7001057B0 /* room@2x.png */; };
+		F13F96301A2AE7C7001057B0 /* tabbar_contacts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F96281A2AE7C7001057B0 /* tabbar_contacts@2x.png */; };
+		F13F96311A2AE7C7001057B0 /* tabbar_contactsHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F96291A2AE7C7001057B0 /* tabbar_contactsHL@2x.png */; };
+		F13F96321A2AE7C7001057B0 /* tabbar_mainframe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F962A1A2AE7C7001057B0 /* tabbar_mainframe@2x.png */; };
+		F13F96331A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F962B1A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png */; };
+		F13F96341A2AE7C7001057B0 /* tabbar_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F962C1A2AE7C7001057B0 /* tabbar_me@2x.png */; };
+		F13F96351A2AE7C7001057B0 /* tabbar_meHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F962D1A2AE7C7001057B0 /* tabbar_meHL@2x.png */; };
+		F13F96381A2B06CD001057B0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96371A2B06CD001057B0 /* Command.swift */; };
+		F14083331A2DA2DF008EAD35 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14083321A2DA2DF008EAD35 /* TimeAgo.swift */; };
+		F14083371A2DB144008EAD35 /* bubble_min@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14083351A2DB144008EAD35 /* bubble_min@2x.png */; };
+		F14083391A2DB1CF008EAD35 /* user_placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F14083381A2DB1CF008EAD35 /* user_placeholder@2x.png */; };
+		F14AB48D1A2DEE760082CECC /* SwiftForms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14AB48C1A2DEE760082CECC /* SwiftForms.framework */; };
+		F14AB48E1A2DEE760082CECC /* SwiftForms.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F14AB48C1A2DEE760082CECC /* SwiftForms.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F14AB4901A2DEE760082CECC /* SWWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14AB48F1A2DEE760082CECC /* SWWebImage.framework */; };
+		F14AB4911A2DEE760082CECC /* SWWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F14AB48F1A2DEE760082CECC /* SWWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F14AB4941A2E0BE10082CECC /* MessageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */; };
+		F156E2171A260367002A5E5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2161A260367002A5E5C /* MainViewController.swift */; };
+		F156E2551A2608D8002A5E5C /* module.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2541A2608D8002A5E5C /* module.swift */; };
+		F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */; };
+		F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25A1A260A02002A5E5C /* LoginModule.swift */; };
+		F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25C1A261088002A5E5C /* Deserializable.swift */; };
+		F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19F5E5C1A309C6F009445B2 /* sunflower.jpg */; };
+		F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BE45A81A2D583B008AC999 /* placeholder@2x.png */; };
+		F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE45AA1A2D5F4A008AC999 /* Session.swift */; };
+		F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77141A2FFA0200760486 /* QNUploadManager.swift */; };
+		F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77161A2FFF7100760486 /* QNCrc32.swift */; };
+		F1DB771A1A3008B700760486 /* CRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77191A3008B700760486 /* CRC.swift */; };
+		F1DB771F1A30221D00760486 /* QNHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB771E1A30221D00760486 /* QNHttpManager.swift */; };
+		F1DB77211A30360700760486 /* HttpUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77201A30360700760486 /* HttpUpload.swift */; };
+		F1DB77231A30885300760486 /* UploadToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77221A30885300760486 /* UploadToken.swift */; };
+		F1DB77291A30917400760486 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77281A30917400760486 /* File.swift */; };
+		F1E1CB1A1A315AB0009B5CB8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB181A315AB0009B5CB8 /* camera@2x.png */; };
+		F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB191A315AB0009B5CB8 /* photo@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1288DCD1A24525B007B009C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1288DAC1A24525B007B009C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1288DB31A24525B007B009C;
+			remoteInfo = WeTalk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F14AB4921A2DEE760082CECC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F14AB48E1A2DEE760082CECC /* SwiftForms.framework in Embed Frameworks */,
+				F14AB4911A2DEE760082CECC /* SWWebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbImage.swift; sourceTree = "<group>"; };
+		F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessgeContainter.swift; sourceTree = "<group>"; };
+		F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageView.swift; sourceTree = "<group>"; };
+		F1288DB41A24525B007B009C /* WeTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1288DB81A24525B007B009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1288DB91A24525B007B009C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F1288DBC1A24525B007B009C /* WeTalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeTalk.xcdatamodel; sourceTree = "<group>"; };
+		F1288DBE1A24525B007B009C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1288DC11A24525B007B009C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1288DC31A24525B007B009C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F1288DC61A24525B007B009C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F1288DCC1A24525B007B009C /* WeTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1288DD11A24525B007B009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1288DD21A24525B007B009C /* WeTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeTalkTests.swift; sourceTree = "<group>"; };
+		F1288DDC1A245368007B009C /* util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = util.swift; sourceTree = "<group>"; };
+		F1288DE01A2455C5007B009C /* InputFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
+		F1288E3A1A246CB1007B009C /* TcpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpClient.swift; sourceTree = "<group>"; };
+		F1288E3F1A247C37007B009C /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		F13F96011A29FB99001057B0 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		F13F96031A29FC79001057B0 /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		F13F96051A29FE84001057B0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		F13F96071A2A02C6001057B0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		F13F96091A2A0321001057B0 /* MessagesInputToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInputToolbar.swift; sourceTree = "<group>"; };
+		F13F960B1A2A034F001057B0 /* MessagesComposerTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesComposerTextView.swift; sourceTree = "<group>"; };
+		F13F960E1A2A0446001057B0 /* BadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		F13F96101A2A0C75001057B0 /* MessageKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageKeyboardController.swift; sourceTree = "<group>"; };
+		F13F96121A2A0D02001057B0 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		F13F96141A2A0F66001057B0 /* MessageTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTextView.swift; sourceTree = "<group>"; };
+		F13F96161A2A0FAA001057B0 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		F13F96181A2A119A001057B0 /* ContactViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewCell.swift; sourceTree = "<group>"; };
+		F13F961B1A2A1B27001057B0 /* PersistenceProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceProcessor.swift; sourceTree = "<group>"; };
+		F13F961C1A2A1B27001057B0 /* SQLiteDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		F13F961F1A2A1B5A001057B0 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		F13F96211A2A1B8C001057B0 /* WeTalk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTalk-Bridging-Header.h"; sourceTree = "<group>"; };
+		F13F96261A2AE7C7001057B0 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
+		F13F96271A2AE7C7001057B0 /* room@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "room@2x.png"; sourceTree = "<group>"; };
+		F13F96281A2AE7C7001057B0 /* tabbar_contacts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_contacts@2x.png"; sourceTree = "<group>"; };
+		F13F96291A2AE7C7001057B0 /* tabbar_contactsHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_contactsHL@2x.png"; sourceTree = "<group>"; };
+		F13F962A1A2AE7C7001057B0 /* tabbar_mainframe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainframe@2x.png"; sourceTree = "<group>"; };
+		F13F962B1A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainframeHL@2x.png"; sourceTree = "<group>"; };
+		F13F962C1A2AE7C7001057B0 /* tabbar_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_me@2x.png"; sourceTree = "<group>"; };
+		F13F962D1A2AE7C7001057B0 /* tabbar_meHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_meHL@2x.png"; sourceTree = "<group>"; };
+		F13F96371A2B06CD001057B0 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		F14083321A2DA2DF008EAD35 /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
+		F14083351A2DB144008EAD35 /* bubble_min@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_min@2x.png"; sourceTree = "<group>"; };
+		F14083381A2DB1CF008EAD35 /* user_placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_placeholder@2x.png"; sourceTree = "<group>"; };
+		F14AB48C1A2DEE760082CECC /* SwiftForms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftForms.framework; path = "/Users/goldratio/Library/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos/SwiftForms.framework"; sourceTree = "<absolute>"; };
+		F14AB48F1A2DEE760082CECC /* SWWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SWWebImage.framework; path = "/Users/goldratio/Library/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos/SWWebImage.framework"; sourceTree = "<absolute>"; };
+		F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageProcessor.swift; sourceTree = "<group>"; };
+		F156E2161A260367002A5E5C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F156E2541A2608D8002A5E5C /* module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = module.swift; sourceTree = "<group>"; };
+		F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		F156E25A1A260A02002A5E5C /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
+		F156E25C1A261088002A5E5C /* Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializable.swift; sourceTree = "<group>"; };
+		F19F5E5C1A309C6F009445B2 /* sunflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunflower.jpg; sourceTree = "<group>"; };
+		F1BE45A81A2D583B008AC999 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		F1BE45AA1A2D5F4A008AC999 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		F1DB77141A2FFA0200760486 /* QNUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNUploadManager.swift; sourceTree = "<group>"; };
+		F1DB77161A2FFF7100760486 /* QNCrc32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNCrc32.swift; sourceTree = "<group>"; };
+		F1DB77191A3008B700760486 /* CRC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC.swift; sourceTree = "<group>"; };
+		F1DB771E1A30221D00760486 /* QNHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNHttpManager.swift; sourceTree = "<group>"; };
+		F1DB77201A30360700760486 /* HttpUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUpload.swift; sourceTree = "<group>"; };
+		F1DB77221A30885300760486 /* UploadToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToken.swift; sourceTree = "<group>"; };
+		F1DB77281A30917400760486 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F1E1CB181A315AB0009B5CB8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		F1E1CB191A315AB0009B5CB8 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1288DB11A24525B007B009C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14AB48D1A2DEE760082CECC /* SwiftForms.framework in Frameworks */,
+				F14AB4901A2DEE760082CECC /* SWWebImage.framework in Frameworks */,
+				F13F96201A2A1B5A001057B0 /* libsqlite3.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1288DC91A24525B007B009C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1288DAB1A24525B007B009C = {
+			isa = PBXGroup;
+			children = (
+				F14AB48F1A2DEE760082CECC /* SWWebImage.framework */,
+				F14AB48C1A2DEE760082CECC /* SwiftForms.framework */,
+				F13F961F1A2A1B5A001057B0 /* libsqlite3.0.dylib */,
+				F1288DB61A24525B007B009C /* WeTalk */,
+				F1288DCF1A24525B007B009C /* WeTalkTests */,
+				F1288DB51A24525B007B009C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1288DB51A24525B007B009C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1288DB41A24525B007B009C /* WeTalk.app */,
+				F1288DCC1A24525B007B009C /* WeTalkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1288DB61A24525B007B009C /* WeTalk */ = {
+			isa = PBXGroup;
+			children = (
+				F1DB77181A3008A700760486 /* crypto */,
+				F1DB77131A2FF9F200760486 /* storage */,
+				F13F96361A2B06BE001057B0 /* protocol */,
+				F13F96251A2AE7C7001057B0 /* resources */,
+				F13F961A1A2A1B27001057B0 /* database */,
+				F13F960D1A2A043C001057B0 /* util */,
+				F156E2531A2608C4002A5E5C /* module */,
+				F156E24E1A2604A3002A5E5C /* contacts */,
+				F156E2181A26044F002A5E5C /* chat */,
+				F1288E3E1A247C28007B009C /* json */,
+				F1288E391A24687E007B009C /* communition */,
+				F1288DDE1A2455A0007B009C /* widget */,
+				F1288DB91A24525B007B009C /* AppDelegate.swift */,
+				F1288DBE1A24525B007B009C /* ViewController.swift */,
+				F1288DC01A24525B007B009C /* Main.storyboard */,
+				F1288DC31A24525B007B009C /* Images.xcassets */,
+				F1288DC51A24525B007B009C /* LaunchScreen.xib */,
+				F1288DBB1A24525B007B009C /* WeTalk.xcdatamodeld */,
+				F1288DB71A24525B007B009C /* Supporting Files */,
+				F1288DDC1A245368007B009C /* util.swift */,
+				F156E2161A260367002A5E5C /* MainViewController.swift */,
+				F13F96211A2A1B8C001057B0 /* WeTalk-Bridging-Header.h */,
+			);
+			path = WeTalk;
+			sourceTree = "<group>";
+		};
+		F1288DB71A24525B007B009C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1288DB81A24525B007B009C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1288DCF1A24525B007B009C /* WeTalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1288DD21A24525B007B009C /* WeTalkTests.swift */,
+				F1288DD01A24525B007B009C /* Supporting Files */,
+			);
+			path = WeTalkTests;
+			sourceTree = "<group>";
+		};
+		F1288DD01A24525B007B009C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1288DD11A24525B007B009C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1288DDE1A2455A0007B009C /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				F1288DE01A2455C5007B009C /* InputFieldCell.swift */,
+				F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */,
+				F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */,
+			);
+			path = widget;
+			sourceTree = "<group>";
+		};
+		F1288E391A24687E007B009C /* communition */ = {
+			isa = PBXGroup;
+			children = (
+				F1288E3A1A246CB1007B009C /* TcpClient.swift */,
+				F1BE45AA1A2D5F4A008AC999 /* Session.swift */,
+			);
+			path = communition;
+			sourceTree = "<group>";
+		};
+		F1288E3E1A247C28007B009C /* json */ = {
+			isa = PBXGroup;
+			children = (
+				F1288E3F1A247C37007B009C /* Serializable.swift */,
+				F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */,
+				F156E25C1A261088002A5E5C /* Deserializable.swift */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		F13F960D1A2A043C001057B0 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				F13F960E1A2A0446001057B0 /* BadgeView.swift */,
+				F14083321A2DA2DF008EAD35 /* TimeAgo.swift */,
+				F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		F13F961A1A2A1B27001057B0 /* database */ = {
+			isa = PBXGroup;
+			children = (
+				F13F961B1A2A1B27001057B0 /* PersistenceProcessor.swift */,
+				F13F961C1A2A1B27001057B0 /* SQLiteDB.swift */,
+			);
+			path = database;
+			sourceTree = "<group>";
+		};
+		F13F96251A2AE7C7001057B0 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				F19F5E5C1A309C6F009445B2 /* sunflower.jpg */,
+				F14083381A2DB1CF008EAD35 /* user_placeholder@2x.png */,
+				F1BE45A81A2D583B008AC999 /* placeholder@2x.png */,
+				F13F96261A2AE7C7001057B0 /* add@2x.png */,
+				F13F96271A2AE7C7001057B0 /* room@2x.png */,
+				F13F96281A2AE7C7001057B0 /* tabbar_contacts@2x.png */,
+				F13F96291A2AE7C7001057B0 /* tabbar_contactsHL@2x.png */,
+				F13F962A1A2AE7C7001057B0 /* tabbar_mainframe@2x.png */,
+				F13F962B1A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png */,
+				F13F962C1A2AE7C7001057B0 /* tabbar_me@2x.png */,
+				F13F962D1A2AE7C7001057B0 /* tabbar_meHL@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		F13F96361A2B06BE001057B0 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F13F96371A2B06CD001057B0 /* Command.swift */,
+				F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
+		F156E2181A26044F002A5E5C /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				F1E1CB181A315AB0009B5CB8 /* camera@2x.png */,
+				F1E1CB191A315AB0009B5CB8 /* photo@2x.png */,
+				F14083351A2DB144008EAD35 /* bubble_min@2x.png */,
+				F13F96011A29FB99001057B0 /* RecentViewController.swift */,
+				F13F96031A29FC79001057B0 /* ChatViewCell.swift */,
+				F13F96051A29FE84001057B0 /* Message.swift */,
+				F13F96071A2A02C6001057B0 /* MessageViewController.swift */,
+				F13F96091A2A0321001057B0 /* MessagesInputToolbar.swift */,
+				F13F960B1A2A034F001057B0 /* MessagesComposerTextView.swift */,
+				F13F96101A2A0C75001057B0 /* MessageKeyboardController.swift */,
+				F13F96121A2A0D02001057B0 /* MessageCell.swift */,
+				F13F96141A2A0F66001057B0 /* MessageTextView.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
+		F156E24E1A2604A3002A5E5C /* contacts */ = {
+			isa = PBXGroup;
+			children = (
+				F13F96161A2A0FAA001057B0 /* ContactsViewController.swift */,
+				F13F96181A2A119A001057B0 /* ContactViewCell.swift */,
+			);
+			path = contacts;
+			sourceTree = "<group>";
+		};
+		F156E2531A2608C4002A5E5C /* module */ = {
+			isa = PBXGroup;
+			children = (
+				F156E2541A2608D8002A5E5C /* module.swift */,
+				F156E25A1A260A02002A5E5C /* LoginModule.swift */,
+			);
+			path = module;
+			sourceTree = "<group>";
+		};
+		F1DB77131A2FF9F200760486 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				F1DB77141A2FFA0200760486 /* QNUploadManager.swift */,
+				F1DB77161A2FFF7100760486 /* QNCrc32.swift */,
+				F1DB771E1A30221D00760486 /* QNHttpManager.swift */,
+				F1DB77201A30360700760486 /* HttpUpload.swift */,
+				F1DB77221A30885300760486 /* UploadToken.swift */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		F1DB77181A3008A700760486 /* crypto */ = {
+			isa = PBXGroup;
+			children = (
+				F1DB77191A3008B700760486 /* CRC.swift */,
+				F1DB77281A30917400760486 /* File.swift */,
+			);
+			path = crypto;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1288DB31A24525B007B009C /* WeTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1288DD61A24525B007B009C /* Build configuration list for PBXNativeTarget "WeTalk" */;
+			buildPhases = (
+				F1288DB01A24525B007B009C /* Sources */,
+				F1288DB11A24525B007B009C /* Frameworks */,
+				F1288DB21A24525B007B009C /* Resources */,
+				F14AB4921A2DEE760082CECC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeTalk;
+			productName = WeTalk;
+			productReference = F1288DB41A24525B007B009C /* WeTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F1288DCB1A24525B007B009C /* WeTalkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1288DD91A24525B007B009C /* Build configuration list for PBXNativeTarget "WeTalkTests" */;
+			buildPhases = (
+				F1288DC81A24525B007B009C /* Sources */,
+				F1288DC91A24525B007B009C /* Frameworks */,
+				F1288DCA1A24525B007B009C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1288DCE1A24525B007B009C /* PBXTargetDependency */,
+			);
+			name = WeTalkTests;
+			productName = WeTalkTests;
+			productReference = F1288DCC1A24525B007B009C /* WeTalkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1288DAC1A24525B007B009C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = GoldRatio;
+				TargetAttributes = {
+					F1288DB31A24525B007B009C = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					F1288DCB1A24525B007B009C = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = F1288DB31A24525B007B009C;
+					};
+				};
+			};
+			buildConfigurationList = F1288DAF1A24525B007B009C /* Build configuration list for PBXProject "WeTalk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1288DAB1A24525B007B009C;
+			productRefGroup = F1288DB51A24525B007B009C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1288DB31A24525B007B009C /* WeTalk */,
+				F1288DCB1A24525B007B009C /* WeTalkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1288DB21A24525B007B009C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13F962E1A2AE7C7001057B0 /* add@2x.png in Resources */,
+				F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */,
+				F1288DC21A24525B007B009C /* Main.storyboard in Resources */,
+				F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */,
+				F14083371A2DB144008EAD35 /* bubble_min@2x.png in Resources */,
+				F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */,
+				F1288DC71A24525B007B009C /* LaunchScreen.xib in Resources */,
+				F14083391A2DB1CF008EAD35 /* user_placeholder@2x.png in Resources */,
+				F1288DC41A24525B007B009C /* Images.xcassets in Resources */,
+				F1E1CB1A1A315AB0009B5CB8 /* camera@2x.png in Resources */,
+				F13F96311A2AE7C7001057B0 /* tabbar_contactsHL@2x.png in Resources */,
+				F13F962F1A2AE7C7001057B0 /* room@2x.png in Resources */,
+				F13F96301A2AE7C7001057B0 /* tabbar_contacts@2x.png in Resources */,
+				F13F96351A2AE7C7001057B0 /* tabbar_meHL@2x.png in Resources */,
+				F13F96321A2AE7C7001057B0 /* tabbar_mainframe@2x.png in Resources */,
+				F13F96341A2AE7C7001057B0 /* tabbar_me@2x.png in Resources */,
+				F13F96331A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1288DCA1A24525B007B009C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1288DB01A24525B007B009C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */,
+				F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */,
+				F1DB77231A30885300760486 /* UploadToken.swift in Sources */,
+				F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */,
+				F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */,
+				F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */,
+				F14083331A2DA2DF008EAD35 /* TimeAgo.swift in Sources */,
+				F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */,
+				F13F96151A2A0F66001057B0 /* MessageTextView.swift in Sources */,
+				F13F96171A2A0FAA001057B0 /* ContactsViewController.swift in Sources */,
+				F1288DBF1A24525B007B009C /* ViewController.swift in Sources */,
+				F1DB77211A30360700760486 /* HttpUpload.swift in Sources */,
+				F11EFD701A34927B00C1D274 /* ImageMessageView.swift in Sources */,
+				F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */,
+				F13F96111A2A0C75001057B0 /* MessageKeyboardController.swift in Sources */,
+				F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */,
+				F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */,
+				F1DB77291A30917400760486 /* File.swift in Sources */,
+				F13F96041A29FC79001057B0 /* ChatViewCell.swift in Sources */,
+				F13F96381A2B06CD001057B0 /* Command.swift in Sources */,
+				F1288DBA1A24525B007B009C /* AppDelegate.swift in Sources */,
+				F1288E401A247C37007B009C /* Serializable.swift in Sources */,
+				F13F96131A2A0D02001057B0 /* MessageCell.swift in Sources */,
+				F13F961D1A2A1B27001057B0 /* PersistenceProcessor.swift in Sources */,
+				F1DB771F1A30221D00760486 /* QNHttpManager.swift in Sources */,
+				F14AB4941A2E0BE10082CECC /* MessageProcessor.swift in Sources */,
+				F1288DBD1A24525B007B009C /* WeTalk.xcdatamodeld in Sources */,
+				F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */,
+				F1DB771A1A3008B700760486 /* CRC.swift in Sources */,
+				F156E2171A260367002A5E5C /* MainViewController.swift in Sources */,
+				F1288DDD1A245368007B009C /* util.swift in Sources */,
+				F13F96081A2A02C6001057B0 /* MessageViewController.swift in Sources */,
+				F13F96061A29FE84001057B0 /* Message.swift in Sources */,
+				F13F961E1A2A1B27001057B0 /* SQLiteDB.swift in Sources */,
+				F13F960F1A2A0446001057B0 /* BadgeView.swift in Sources */,
+				F156E2551A2608D8002A5E5C /* module.swift in Sources */,
+				F13F960C1A2A034F001057B0 /* MessagesComposerTextView.swift in Sources */,
+				F11EFD6C1A3469CB00C1D274 /* ThumbImage.swift in Sources */,
+				F11EFD6E1A34827B00C1D274 /* MessgeContainter.swift in Sources */,
+				F13F96191A2A119A001057B0 /* ContactViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1288DC81A24525B007B009C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1288DD31A24525B007B009C /* WeTalkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1288DCE1A24525B007B009C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1288DB31A24525B007B009C /* WeTalk */;
+			targetProxy = F1288DCD1A24525B007B009C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F1288DC01A24525B007B009C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1288DC11A24525B007B009C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1288DC51A24525B007B009C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1288DC61A24525B007B009C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F1288DD41A24525B007B009C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1288DD51A24525B007B009C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1288DD71A24525B007B009C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftForms/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/SWWebImage/SWWebImage/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = WeTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeTalk/WeTalk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1288DD81A24525B007B009C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SwiftForms/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/SWWebImage/SWWebImage/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = WeTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeTalk/WeTalk-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		F1288DDA1A24525B007B009C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeTalk.app/WeTalk";
+			};
+			name = Debug;
+		};
+		F1288DDB1A24525B007B009C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeTalk.app/WeTalk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1288DAF1A24525B007B009C /* Build configuration list for PBXProject "WeTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1288DD41A24525B007B009C /* Debug */,
+				F1288DD51A24525B007B009C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1288DD61A24525B007B009C /* Build configuration list for PBXNativeTarget "WeTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1288DD71A24525B007B009C /* Debug */,
+				F1288DD81A24525B007B009C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1288DD91A24525B007B009C /* Build configuration list for PBXNativeTarget "WeTalkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1288DDA1A24525B007B009C /* Debug */,
+				F1288DDB1A24525B007B009C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F1288DBB1A24525B007B009C /* WeTalk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F1288DBC1A24525B007B009C /* WeTalk.xcdatamodel */,
+			);
+			currentVersion = F1288DBC1A24525B007B009C /* WeTalk.xcdatamodel */;
+			path = WeTalk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F1288DAC1A24525B007B009C /* Project object */;
+}
