@@ -104,9 +104,9 @@ class Session: TcpClientDelegate {
         packageProcessors[loginProcessor.responseKey()] = loginProcessor
         
         
-        connection = TcpClient(host: "localhost", port: 8100)
+        //connection = TcpClient(host: "localhost", port: 8100)
         //connection = TcpClient(host: "192.168.32.10", port: 8100)
-        //connection = TcpClient(host: "192.168.99.181", port: 8100)
+        connection = TcpClient(host: "192.168.99.181", port: 8100)
         connection.delegate = self
         connection.connect()
     }

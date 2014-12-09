@@ -527,9 +527,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func finishSendingOrReceivingMessage() {
-        self.collectionView?.reloadData()
-        
-        self.scrollToBottomAnimated(true)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.collectionView?.reloadData()
+            self.scrollToBottomAnimated(true)
+        })
         
         //        self.collectionView?.performBatchUpdates({ () -> Void in
         //        }, completion: { (Bool) -> Void in
@@ -584,18 +585,25 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             messageType: .Image,
             status: .Send)
         
-        
-        session.sendMessage(message)
-        
         PersistenceProcessor.sharedInstance.sendMessage(message)
         
+        self.messages.append(message)
+        self.finishSendingOrReceivingMessage()
+        
         func completeHandler(AnyObject?, NSError?) -> Void {
-            self.messages.append(message)
-            self.finishSendingOrReceivingMessage()
+            session.sendMessage(message)
         }
         
-        func progressHandler(Int64, Int64) -> Void {
-            
+        let cellPath = NSIndexPath(forItem: (self.messages.count - 1), inSection: 0)
+        
+        func progressHandler(progress: Int64, total: Int64) -> Void {
+            println("cell index:\(cellPath.row) progress: \(progress) total: \(total)")
+            let text = self.collectionView!.cellForRowAtIndexPath(cellPath)
+            if let cell = text as? MessageCell {
+                dispatch_async(dispatch_get_main_queue(), {
+                    cell.setProgress(Double(progress) / Double(total))
+                })
+            }
         }
         
         QNUploadManager.postData(imageData, fileName: fileName, completeHandler: completeHandler, progressHandler:progressHandler)
@@ -654,17 +662,19 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if (indexPath.row == i) {
                             index = images.count
                         }
-                        let url = "http://mqshen.qiniudn.com/\(message.content)"
-                        let cellPath = NSIndexPath(forItem: i, inSection: 0)
-                        if let cell = self.collectionView!.cellForRowAtIndexPath(cellPath) as? MessageCell {
-                            let photo = Photo(content: url, image: nil, srcImageView: cell.messageImageView, placeholder: message.image!, capture: message.image!)
-                            images.append(photo)
-                            photo.firstShow = i == indexPath.row
-                        }
-                        else {
-                            let photo = Photo(content: url, image: nil, srcImageView: nil, placeholder: message.image!, capture: message.image!)
-                            images.append(photo)
-                            photo.firstShow = i == indexPath.row
+                        if let image = message.image? {
+                            let url = "http://mqshen.qiniudn.com/\(message.content)"
+                            let cellPath = NSIndexPath(forItem: i, inSection: 0)
+                            if let cell = self.collectionView!.cellForRowAtIndexPath(cellPath) as? MessageCell {
+                                let photo = Photo(content: url, image: nil, srcImageView: cell.messageImageView, placeholder: image, capture: image)
+                                images.append(photo)
+                                photo.firstShow = i == indexPath.row
+                            }
+                            else {
+                                let photo = Photo(content: url, image: nil, srcImageView: nil, placeholder: image, capture: image)
+                                images.append(photo)
+                                photo.firstShow = i == indexPath.row
+                            }
                         }
                     }
                 }

@@ -21,6 +21,7 @@
 		F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288DE01A2455C5007B009C /* InputFieldCell.swift */; };
 		F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3A1A246CB1007B009C /* TcpClient.swift */; };
 		F1288E401A247C37007B009C /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3F1A247C37007B009C /* Serializable.swift */; };
+		F13892811A37295000E09641 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13892801A37295000E09641 /* ProgressView.swift */; };
 		F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96011A29FB99001057B0 /* RecentViewController.swift */; };
 		F13F96041A29FC79001057B0 /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96031A29FC79001057B0 /* ChatViewCell.swift */; };
 		F13F96061A29FE84001057B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96051A29FE84001057B0 /* Message.swift */; };
@@ -126,6 +127,7 @@
 		F1288DE01A2455C5007B009C /* InputFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputFieldCell.swift; sourceTree = "<group>"; };
 		F1288E3A1A246CB1007B009C /* TcpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpClient.swift; sourceTree = "<group>"; };
 		F1288E3F1A247C37007B009C /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		F13892801A37295000E09641 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F13F96011A29FB99001057B0 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		F13F96031A29FC79001057B0 /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
 		F13F96051A29FE84001057B0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				F1288DE01A2455C5007B009C /* InputFieldCell.swift */,
 				F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */,
 				F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */,
+				F13892801A37295000E09641 /* ProgressView.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */,
 				F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */,
 				F1DB77291A30917400760486 /* File.swift in Sources */,
+				F13892811A37295000E09641 /* ProgressView.swift in Sources */,
 				F13F96041A29FC79001057B0 /* ChatViewCell.swift in Sources */,
 				F13F96381A2B06CD001057B0 /* Command.swift in Sources */,
 				F1288DBA1A24525B007B009C /* AppDelegate.swift in Sources */,

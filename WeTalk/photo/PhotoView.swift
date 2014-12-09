@@ -125,14 +125,15 @@ class PhotoView : UIScrollView, UIScrollViewDelegate {
             // 不是gif，就马上开始下载
             let photo = self.photo!
             
-            imageView.setImage(self.photo!.url,
-                placeholderImage: self.photo!.placeholder,
+            imageView.setImage(photo.url,
+                placeholderImage: photo.placeholder,
                 options: SWWebImageOptions.LowPriority,
                 progress: nil,
                 completeHandler: { (image: UIImage?, error: NSError?, cacheType: SWImageCacheType) -> Void in
-                photo.image = image!
+                    if let image = image? {
+                        photo.image = image
+                    }
             })
-           
         }
         else {
             self.photoStartLoad()
@@ -154,12 +155,14 @@ class PhotoView : UIScrollView, UIScrollViewDelegate {
             //[self addSubview:_photoLoadingView];
             
             let photo = self.photo!
-            imageView.setImage(self.photo!.url,
-                placeholderImage: self.photo!.placeholder,
+            imageView.setImage(photo.url,
+                placeholderImage: photo.placeholder,
                 options: SWWebImageOptions.LowPriority,
                 progress: nil,
                 completeHandler: { (image: UIImage?, error: NSError?, cacheType: SWImageCacheType) -> Void in
-                    photo.image = image!
+                    if let image = image? {
+                        photo.image = image
+                    }
             })
         }
     }

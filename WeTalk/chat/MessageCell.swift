@@ -181,7 +181,9 @@ class MessageCell: UITableViewCell
         }
     }
     
-    
+    func setProgress(progress: Double) {
+        
+    }
 }
 
 class IncomingMessageCell: MessageCell
@@ -259,6 +261,7 @@ class IncomingMessageCell: MessageCell
 
 class IncomingImageMessageCell: MessageCell
 {
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clearColor()
@@ -408,6 +411,9 @@ class OutgoingMessageCell: MessageCell
 
 class OutgoingImageMessageCell: MessageCell
 {
+    
+    var loadingView: ProgressView?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clearColor()
@@ -477,5 +483,27 @@ class OutgoingImageMessageCell: MessageCell
             refresh.frame = refreshFrame
         }
         return frame
+    }
+    
+    override func setProgress(progress: Double) {
+        if let frame = self.messageImageView?.frame {
+            if self.loadingView == nil {
+                let width:CGFloat = 40.0
+                let height:CGFloat  = 40.0
+                
+                let left = CGFloat((frame.size.width - width) / 2)
+                let top = CGFloat((frame.size.height - height ) / 2)
+                self.loadingView = ProgressView(frame: CGRectMake(left, top, width, height))
+            }
+        }
+        if let loadingView = self.loadingView? {
+            if(progress >= 1) {
+                loadingView.removeFromSuperview()
+            }
+            else {
+                self.messageImageView?.addSubview(loadingView)
+                loadingView.progress = progress
+            }
+        }
     }
 }
