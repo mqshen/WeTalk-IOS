@@ -33,7 +33,9 @@ class Message: Serializable
         self.from = json["from"].stringValue
         self.to = json["to"].stringValue
         self.content = json["content"].stringValue
-        self.attach = json["seqattachNo"].string
+        if let attach = json["attach"].string? {
+            self.attach = attach//.stringByReplacingOccurrencesOfString("\r\n", withString: "\\r\\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        }
         self.timestamp = json["timestamp"].int64Value
         self.status = MessageStatus(rawValue: json["status"].intValue)!
         self.messageType = MessageType(rawValue: json["messageType"].intValue)!
@@ -68,6 +70,15 @@ class Message: Serializable
 //        return "{\"fromUserName\": \"\(fromUserName)\", \"toUserName\": \"\(toUserName)\",\"type\": \(type),\"content\": \"\(content)\",\"clientMsgId\": \(clientMsgId), \"timestamp\": \(createTime)}"
 //    }
 //    
+    
+   // func toDictionary() ->
+    override func toDictionary() -> NSMutableDictionary {
+        var modelDictionary = super.toDictionary()
+        if let attach = self.attach? {
+            modelDictionary.setValue(attach, forKey: "attach")
+        }
+        return modelDictionary
+    }
     
     func packageData() -> NSString {
         return "3:1:" + self.toJsonString()

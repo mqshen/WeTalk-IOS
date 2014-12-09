@@ -74,7 +74,8 @@ public class SWWebImageView : UIImageView
     var url: NSURL?
     
     //func setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder
-    public func setImage(url: NSURL, placeholderImage: UIImage, options: SWWebImageOptions = SWWebImageOptions.None, progress: SWWebImageDownloaderProgressHandler? = nil) {
+    public func setImage(url: NSURL, placeholderImage: UIImage, options: SWWebImageOptions = SWWebImageOptions.None,
+        progress: SWWebImageDownloaderProgressHandler? = nil, completeHandler: SWWebImageCompletedHandler? = nil) {
         self.cancelCurrentImageLoad()
         self.url = url
         if !(options & SWWebImageOptions.DelayPlaceholder).boolValue {
@@ -93,6 +94,11 @@ public class SWWebImageView : UIImageView
                             if (options & SWWebImageOptions.DelayPlaceholder ).boolValue {
                                 self.image = placeholderImage;
                                 self.setNeedsLayout()
+                            }
+                        }
+                        if let complete = completeHandler? {
+                            if (finished) {
+                                complete(image, error, cacheType)
                             }
                         }
                     })

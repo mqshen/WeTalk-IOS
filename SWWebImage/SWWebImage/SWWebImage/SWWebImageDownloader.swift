@@ -63,6 +63,7 @@ func == (lhs: SWWebImageDownloaderOptions, rhs: SWWebImageDownloaderOptions) -> 
 public typealias SWWebImageDownloaderProgressHandler = (Int, Int) -> Void
 public typealias SWWebImageDownloaderCompletedHandler = (UIImage?, NSData?, NSError?, Bool) -> Void
 public typealias SWWebImageNoParamsHandler = () -> Void
+public typealias SWWebImageCompletedHandler = (UIImage?, NSError? , SWImageCacheType ) -> Void
 
 
 class URLCallback

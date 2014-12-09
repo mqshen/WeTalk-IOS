@@ -9,6 +9,38 @@
 import Foundation
 import UIKit
 
+//class ImageMessageView: UIImageView {
+//
+//    let status: MessageStatus
+//    
+//    init(frame: CGRect, status: MessageStatus) {
+//        self.status = status
+//        super.init(frame: frame)
+//        self.backgroundColor = UIColor.clearColor()
+//        self.contentMode = UIViewContentMode.Redraw
+//    
+//    }
+//    
+//    required init(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    override var image: UIImage? {
+//        get {
+//            return super.image
+//        }
+//        set {
+//            if super.image == newValue {
+//                return
+//            }
+//            let maskImage = UIImage(named: "SenderAppNodeBkg.png")
+//            super.image = newValue?.maskImage(maskImage!)
+//            self.setNeedsDisplay()
+//        }
+//    }
+//    
+//}
+
 class ImageMessageView: UIView {
     
     let status: MessageStatus
@@ -48,6 +80,7 @@ class ImageMessageView: UIView {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
         self.contentMode = UIViewContentMode.Redraw
+
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -66,8 +99,8 @@ class ImageMessageView: UIView {
         let triangleMarginTop: CGFloat = 8//三角形距离圆角的距离
         
         
-        //CGContextBeginPath(context);
         
+        CGContextSaveGState(context)
         let minX: CGFloat = CGRectGetMinX(rect)
         let minY: CGFloat = CGRectGetMinY(rect)
         
@@ -99,20 +132,43 @@ class ImageMessageView: UIView {
             CGPathAddLineToPoint(path, nil, CGFloat(minX + radius), maxY)
             
             CGPathAddArc(path, nil, CGFloat(minX + radius), CGFloat(maxY - radius), radius, CGFloat(M_PI / 2), CGFloat(M_PI), false)
-            
         }
         else {
+            CGPathAddArc(path, nil, CGFloat(minX + radius + margin), CGFloat(minY + radius), radius, CGFloat(M_PI), CGFloat(M_PI * 3 / 2), false)
             
+            CGPathAddLineToPoint(path, nil, CGFloat(maxX - radius), minY)
+            
+            CGPathAddArc(path, nil, CGFloat(maxX - radius), CGFloat(minY + radius), radius, CGFloat(M_PI * 3 / 2), CGFloat(M_PI * 2), false)
+            
+            CGPathAddLineToPoint(path, nil, maxX, maxY - radius)
+            
+            CGPathAddArc(path, nil, CGFloat(maxX - radius), CGFloat(maxY - radius), radius, 0, CGFloat(M_PI / 2), false)
+            
+            CGPathAddLineToPoint(path, nil, CGFloat(minX + margin + radius), maxY)
+            
+            CGPathAddArc(path, nil, CGFloat(minX + margin + radius), CGFloat(maxY - radius), radius, CGFloat(M_PI / 2), CGFloat(M_PI), false)
+            
+            CGPathAddLineToPoint(path, nil, CGFloat(minX + margin), minY + triangleMarginTop + triangleSize)
+            
+            CGPathAddLineToPoint(path, nil, CGFloat(minX), minY + triangleMarginTop + (triangleSize / 2))
+            
+            CGPathAddLineToPoint(path, nil, CGFloat(minX + margin), minY + triangleMarginTop)
         }
         
-        //CGContextClosePath(context)
         
-        //CGContextSetStrokeColorWithColor(context, self.color.CGColor)
-        //CGContextStrokePath(context)
         CGContextAddPath(context, path)
+        
         CGContextClip(context)
         if let image = self.image? {
             image.drawInRect(rect)
         }
+        CGContextRestoreGState(context)
+        
+        CGContextBeginPath(context);
+        CGContextAddPath(context, path)
+        CGContextClosePath(context)
+        
+        CGContextSetStrokeColorWithColor(context, self.color.CGColor)
+        CGContextStrokePath(context)
     }
 }

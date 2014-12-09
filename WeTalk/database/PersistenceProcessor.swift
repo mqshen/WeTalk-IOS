@@ -147,7 +147,7 @@ class PersistenceProcessor
     
     func getRecentMessages(userName: String, page: Int, size: Int = 20) -> Array<Message> {
         let skip = page * size
-        let data = database.query("SELECT Id, fromId, toId, content, attach, timestamp, status, messageType FROM 'Chat_\(userName)' ORDER BY Id DESC LIMIT \(skip), \(size)")
+        let data = database.query("SELECT Id, fromId, toId, content, attach, timestamp, status, messageType FROM 'Chat_\(userName)' ORDER BY timestamp DESC LIMIT \(skip), \(size)")
         var messages = [Message]()
         for row in data {
             let id = row["Id"]?.asInt64()

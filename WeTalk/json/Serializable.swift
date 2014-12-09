@@ -18,8 +18,8 @@ class Serializable : NSObject {
         super.init()
     }
     
-    func nsValueForAny(anyValue:Any) -> AnyObject? {
-        switch(anyValue) {
+    func nsValueForAny(any:Any) -> AnyObject? {
+        switch(any) {
         case let intValue as Int:
             return intValue
         case let intValue as Int64:
@@ -42,18 +42,17 @@ class Serializable : NSObject {
         case let messageType as MessageType:
             return (messageType as MessageType).rawValue
         default:
-            return nil
+        return nil
         }
     }
     
-    func toDictionary() -> NSDictionary {
+    func toDictionary() -> NSMutableDictionary {
         
         var modelDictionary:NSMutableDictionary=NSMutableDictionary()
         
         for var index=0; index<reflect(self).count; ++index {
             let key=reflect(self)[index].0
-            println(key)
-            let value=reflect(self)[index].1.value
+            let value = reflect(self)[index].1.value
             
             if key=="super" && index==0 {
                 // if the first key is super, we should probably skip it
@@ -67,8 +66,7 @@ class Serializable : NSObject {
                 
             }
             else {
-                if let nsValue = nsValueForAny(value) {
-                    println("\(key):\(nsValue)")
+                if let nsValue: AnyObject = nsValueForAny(value) {
                     modelDictionary.setValue(nsValue, forKey: key)
                 }
             }

@@ -80,17 +80,36 @@ class MessgeContainter: UIView {
             CGContextAddLineToPoint(context, CGFloat(minX + radius), maxY)
             
             CGContextAddArc(context, CGFloat(minX + radius), CGFloat(maxY - radius), radius, CGFloat(M_PI / 2), CGFloat(M_PI), 0)
-            
-            CGContextClosePath(context)
-            
-            CGContextSetFillColorWithColor(context, self.color.CGColor)
-            
-            CGContextFillPath(context)
         }
+            
         else {
             
+            CGContextAddArc(context, CGFloat(minX + radius + margin), CGFloat(minY + radius), radius, CGFloat(M_PI), CGFloat(M_PI * 3 / 2), 0)
+            
+            CGContextAddLineToPoint(context, CGFloat(maxX - radius), minY)
+            
+            CGContextAddArc(context, CGFloat(maxX - radius), CGFloat(minY + radius), radius, CGFloat(M_PI * 3 / 2), CGFloat(M_PI * 2), 0)
+            
+            CGContextAddLineToPoint(context, maxX, maxY - radius)
+            
+            CGContextAddArc(context, CGFloat(maxX - radius), CGFloat(maxY - radius), radius, 0, CGFloat(M_PI / 2), 0)
+            
+            CGContextAddLineToPoint(context, CGFloat(minX + margin + radius), maxY)
+            
+            CGContextAddArc(context, CGFloat(minX + margin + radius), CGFloat(maxY - radius), radius, CGFloat(M_PI / 2), CGFloat(M_PI), 0)
+            
+            CGContextAddLineToPoint(context, CGFloat(minX + margin), minY + triangleMarginTop + triangleSize)
+            
+            CGContextAddLineToPoint(context, CGFloat(minX), minY + triangleMarginTop + (triangleSize / 2))
+            
+            CGContextAddLineToPoint(context, CGFloat(minX + margin), minY + triangleMarginTop)
+            
         }
         
-        
+        CGContextClosePath(context)
+            
+        CGContextSetFillColorWithColor(context, self.color.CGColor)
+            
+        CGContextFillPath(context)
     }
 }

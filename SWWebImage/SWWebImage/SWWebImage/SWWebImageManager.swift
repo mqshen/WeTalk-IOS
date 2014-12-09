@@ -651,5 +651,12 @@ public class SWWebImageManager
     func cacheKeyForURL(url: NSURL) -> String? {
         return url.absoluteString
     }
+    
+    public class func downloadWithURL(url: NSURL) {
+    // cmp不能为空
+        self.sharedManager.downloadImage(url, options: (.LowPriority | .RetryFailed), progress: nil) {
+            (image: UIImage?, error:NSError?, type: SWImageCacheType, finish: Bool, url: NSURL?) -> Void in
+        }
+    }
 }
 

@@ -61,6 +61,12 @@
 		F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19F5E5C1A309C6F009445B2 /* sunflower.jpg */; };
 		F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BE45A81A2D583B008AC999 /* placeholder@2x.png */; };
 		F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE45AA1A2D5F4A008AC999 /* Session.swift */; };
+		F1BFC65F1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */; };
+		F1BFC6601A35691500BAC359 /* SenderAppNodeBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65C1A35691500BAC359 /* SenderAppNodeBkg@2x.png */; };
+		F1BFC6611A35691500BAC359 /* SenderTextNodeBkgHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65D1A35691500BAC359 /* SenderTextNodeBkgHL@2x.png */; };
+		F1BFC6621A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65E1A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png */; };
+		F1BFC6641A356D9A00BAC359 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BFC6631A356D9A00BAC359 /* Alamofire.framework */; };
+		F1BFC6651A356D9A00BAC359 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1BFC6631A356D9A00BAC359 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77141A2FFA0200760486 /* QNUploadManager.swift */; };
 		F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77161A2FFF7100760486 /* QNCrc32.swift */; };
 		F1DB771A1A3008B700760486 /* CRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77191A3008B700760486 /* CRC.swift */; };
@@ -68,6 +74,9 @@
 		F1DB77211A30360700760486 /* HttpUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77201A30360700760486 /* HttpUpload.swift */; };
 		F1DB77231A30885300760486 /* UploadToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77221A30885300760486 /* UploadToken.swift */; };
 		F1DB77291A30917400760486 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77281A30917400760486 /* File.swift */; };
+		F1DBD4CC1A368C0E002A4A79 /* PhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBD4CB1A368C0E002A4A79 /* PhotoBrowser.swift */; };
+		F1DBD4CE1A368D30002A4A79 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBD4CD1A368D30002A4A79 /* Photo.swift */; };
+		F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */; };
 		F1E1CB1A1A315AB0009B5CB8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB181A315AB0009B5CB8 /* camera@2x.png */; };
 		F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB191A315AB0009B5CB8 /* photo@2x.png */; };
 /* End PBXBuildFile section */
@@ -90,6 +99,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F14AB48E1A2DEE760082CECC /* SwiftForms.framework in Embed Frameworks */,
+				F1BFC6651A356D9A00BAC359 /* Alamofire.framework in Embed Frameworks */,
 				F14AB4911A2DEE760082CECC /* SWWebImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -155,6 +165,11 @@
 		F19F5E5C1A309C6F009445B2 /* sunflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunflower.jpg; sourceTree = "<group>"; };
 		F1BE45A81A2D583B008AC999 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		F1BE45AA1A2D5F4A008AC999 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderAppNodeBkg_HL@2x.png"; sourceTree = "<group>"; };
+		F1BFC65C1A35691500BAC359 /* SenderAppNodeBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderAppNodeBkg@2x.png"; sourceTree = "<group>"; };
+		F1BFC65D1A35691500BAC359 /* SenderTextNodeBkgHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderTextNodeBkgHL@2x.png"; sourceTree = "<group>"; };
+		F1BFC65E1A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderVoiceNodeBkgHL@2x.png"; sourceTree = "<group>"; };
+		F1BFC6631A356D9A00BAC359 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Alamofire.framework; path = "/Users/goldratio/Library/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<absolute>"; };
 		F1DB77141A2FFA0200760486 /* QNUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNUploadManager.swift; sourceTree = "<group>"; };
 		F1DB77161A2FFF7100760486 /* QNCrc32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNCrc32.swift; sourceTree = "<group>"; };
 		F1DB77191A3008B700760486 /* CRC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC.swift; sourceTree = "<group>"; };
@@ -162,6 +177,9 @@
 		F1DB77201A30360700760486 /* HttpUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpUpload.swift; sourceTree = "<group>"; };
 		F1DB77221A30885300760486 /* UploadToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadToken.swift; sourceTree = "<group>"; };
 		F1DB77281A30917400760486 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F1DBD4CB1A368C0E002A4A79 /* PhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowser.swift; sourceTree = "<group>"; };
+		F1DBD4CD1A368D30002A4A79 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		F1E1CB181A315AB0009B5CB8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		F1E1CB191A315AB0009B5CB8 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +192,7 @@
 				F14AB48D1A2DEE760082CECC /* SwiftForms.framework in Frameworks */,
 				F14AB4901A2DEE760082CECC /* SWWebImage.framework in Frameworks */,
 				F13F96201A2A1B5A001057B0 /* libsqlite3.0.dylib in Frameworks */,
+				F1BFC6641A356D9A00BAC359 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +209,7 @@
 		F1288DAB1A24525B007B009C = {
 			isa = PBXGroup;
 			children = (
+				F1BFC6631A356D9A00BAC359 /* Alamofire.framework */,
 				F14AB48F1A2DEE760082CECC /* SWWebImage.framework */,
 				F14AB48C1A2DEE760082CECC /* SwiftForms.framework */,
 				F13F961F1A2A1B5A001057B0 /* libsqlite3.0.dylib */,
@@ -211,6 +231,7 @@
 		F1288DB61A24525B007B009C /* WeTalk */ = {
 			isa = PBXGroup;
 			children = (
+				F1DBD4CA1A368BF5002A4A79 /* photo */,
 				F1DB77181A3008A700760486 /* crypto */,
 				F1DB77131A2FF9F200760486 /* storage */,
 				F13F96361A2B06BE001057B0 /* protocol */,
@@ -340,6 +361,10 @@
 		F156E2181A26044F002A5E5C /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */,
+				F1BFC65C1A35691500BAC359 /* SenderAppNodeBkg@2x.png */,
+				F1BFC65D1A35691500BAC359 /* SenderTextNodeBkgHL@2x.png */,
+				F1BFC65E1A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png */,
 				F1E1CB181A315AB0009B5CB8 /* camera@2x.png */,
 				F1E1CB191A315AB0009B5CB8 /* photo@2x.png */,
 				F14083351A2DB144008EAD35 /* bubble_min@2x.png */,
@@ -393,6 +418,16 @@
 				F1DB77281A30917400760486 /* File.swift */,
 			);
 			path = crypto;
+			sourceTree = "<group>";
+		};
+		F1DBD4CA1A368BF5002A4A79 /* photo */ = {
+			isa = PBXGroup;
+			children = (
+				F1DBD4CB1A368C0E002A4A79 /* PhotoBrowser.swift */,
+				F1DBD4CD1A368D30002A4A79 /* Photo.swift */,
+				F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */,
+			);
+			path = photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,8 +515,10 @@
 				F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */,
 				F1288DC21A24525B007B009C /* Main.storyboard in Resources */,
 				F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */,
+				F1BFC65F1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png in Resources */,
 				F14083371A2DB144008EAD35 /* bubble_min@2x.png in Resources */,
 				F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */,
+				F1BFC6601A35691500BAC359 /* SenderAppNodeBkg@2x.png in Resources */,
 				F1288DC71A24525B007B009C /* LaunchScreen.xib in Resources */,
 				F14083391A2DB1CF008EAD35 /* user_placeholder@2x.png in Resources */,
 				F1288DC41A24525B007B009C /* Images.xcassets in Resources */,
@@ -489,9 +526,11 @@
 				F13F96311A2AE7C7001057B0 /* tabbar_contactsHL@2x.png in Resources */,
 				F13F962F1A2AE7C7001057B0 /* room@2x.png in Resources */,
 				F13F96301A2AE7C7001057B0 /* tabbar_contacts@2x.png in Resources */,
+				F1BFC6611A35691500BAC359 /* SenderTextNodeBkgHL@2x.png in Resources */,
 				F13F96351A2AE7C7001057B0 /* tabbar_meHL@2x.png in Resources */,
 				F13F96321A2AE7C7001057B0 /* tabbar_mainframe@2x.png in Resources */,
 				F13F96341A2AE7C7001057B0 /* tabbar_me@2x.png in Resources */,
+				F1BFC6621A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png in Resources */,
 				F13F96331A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,10 +549,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */,
+				F1DBD4CE1A368D30002A4A79 /* Photo.swift in Sources */,
 				F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */,
 				F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */,
 				F1DB77231A30885300760486 /* UploadToken.swift in Sources */,
 				F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */,
+				F1DBD4CC1A368C0E002A4A79 /* PhotoBrowser.swift in Sources */,
 				F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */,
 				F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */,
 				F14083331A2DA2DF008EAD35 /* TimeAgo.swift in Sources */,

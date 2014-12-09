@@ -191,7 +191,7 @@ class IncomingMessageCell: MessageCell
         self.backgroundColor = UIColor.clearColor()
         avatarView = SWWebImageView(frame: CGRectMake(10, 0, 30, 30))
         //messageBubbleImageView = bubbleImageView(UIColor.whiteColor(), false)
-        messageBubbleImageView = MessgeContainter(frame: CGRectZero, status: .Send)
+        messageBubbleImageView = MessgeContainter(frame: CGRectZero, status: .Receive)
         messageBubbleImageView?.color = UIColor.whiteColor()
         
         messageBubbleContainerView = UIView(frame: CGRectMake(43, 0, 200, 30))
@@ -199,8 +199,6 @@ class IncomingMessageCell: MessageCell
         textView?.backgroundColor = UIColor.clearColor()
         textView?.font = UIFont.systemFontOfSize(14)
         messageBubbleContainerView?.addSubview(textView!)
-        
-        
         
         //messageBubbleImageView?.setTranslatesAutoresizingMaskIntoConstraints(false)
         
@@ -215,7 +213,7 @@ class IncomingMessageCell: MessageCell
             toItem: self.textView,
             attribute: NSLayoutAttribute.Leading,
             multiplier: 1,
-            constant: -13))
+            constant: -15))
         
         self.messageBubbleContainerView?.addConstraint(NSLayoutConstraint(item: self.messageBubbleContainerView!,
             attribute: NSLayoutAttribute.Trailing,
@@ -246,6 +244,17 @@ class IncomingMessageCell: MessageCell
         
         self.initGestureRecognizer()
     }
+    
+    
+    override func calculateMessageFrame(boundingFrame: CGRect) -> CGRect {
+        var frame = self.messageBubbleContainerView!.frame
+        let width = boundingFrame.size.width + 25
+        //frame.origin.x = 320 - 43 - width;
+        frame.size.width = width
+        frame.size.height = boundingFrame.size.height + 16
+        return frame
+    }
+
 }
 
 class IncomingImageMessageCell: MessageCell
@@ -260,7 +269,8 @@ class IncomingImageMessageCell: MessageCell
         
         messageBubbleContainerView = UIView(frame: CGRectMake(43, 0, 200, 30))
         self.messageImageView = ImageMessageView(frame: CGRectMake(10, 5, 200, 20) , status: .Receive)
-        messageImageView?.backgroundColor = UIColor.clearColor()
+        //messageImageView?.backgroundColor = UIColor.clearColor()
+        messageImageView?.color = UIColor.whiteColor()
         messageBubbleContainerView?.addSubview(messageImageView!)
         
         //messageBubbleImageView?.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -305,6 +315,22 @@ class IncomingImageMessageCell: MessageCell
         self.addSubview(avatarView!)
         self.addSubview(messageBubbleContainerView!)
         self.initGestureRecognizer()
+    }
+    
+    
+    override func calculateMessageFrame(boundingFrame: CGRect) -> CGRect {
+        var frame = self.messageBubbleContainerView!.frame
+        let width = boundingFrame.size.width + 25
+        //frame.origin.x = 320 - 43 - width;
+        frame.size.width = width
+        frame.size.height = boundingFrame.size.height + 16
+        
+//        if let refresh = self.refresh? {
+//            var refreshFrame = refresh.frame
+//            refreshFrame.origin.x = frame.origin.x - 20
+//            refresh.frame = refreshFrame
+//        }
+        return frame
     }
 }
 
@@ -392,7 +418,8 @@ class OutgoingImageMessageCell: MessageCell
         
         messageBubbleContainerView = UIView(frame: CGRectMake(77, 0, 200, 30))
         messageImageView = ImageMessageView(frame: CGRectMake(10, 5, 200, 20), status: .Send)
-        messageImageView?.backgroundColor = UIColor.clearColor()
+        //messageImageView?.backgroundColor = UIColor.clearColor()
+        messageImageView?.color = UIColorFromRGB(0x91D052, aplpha: 0.3)
         messageBubbleContainerView?.addSubview(messageImageView!)
         
         messageImageView?.setTranslatesAutoresizingMaskIntoConstraints(false)

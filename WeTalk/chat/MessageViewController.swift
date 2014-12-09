@@ -538,15 +538,18 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func didSelectedVoice(change: Bool) {
+        
     }
     
     func getHistory() {
         let session = Session.sharedInstance
         
         let messages = PersistenceProcessor.sharedInstance.getRecentMessages(self.user!.id, page: 0)
-        for message in messages.reverse() {
+        
+        for message in messages {
             self.messages.append(message)
         }
+        
         self.finishSendingOrReceivingMessage()
     }
     
@@ -596,7 +599,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         QNUploadManager.postData(imageData, fileName: fileName, completeHandler: completeHandler, progressHandler:progressHandler)
-        
     }
     
     func calculateNeedDisplay() {
@@ -627,7 +629,52 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     //    }
     
     
+    func containerRow(rows: [AnyObject], index: Int) -> Bool {
+        if(rows.count > 0) {
+            let first = rows[0] as NSIndexPath
+            let second = rows.last as NSIndexPath
+            if (first.row <= index && second.row >= index ) {
+                return true
+            }
+        }
+        return false
+    }
+    
     func didSelectContent(cell: MessageCell) {
+        if let indexPath = self.collectionView!.indexPathForCell(cell)? {
+            let messageData = self.messages[indexPath.row]
+            if (messageData.messageType == .Image) {
+                
+                var images = [Photo]()
+    
+                var index:Int = 0
+                
+                for (i, message) in enumerate(messages) {
+                    if message.messageType == .Image {
+                        if (indexPath.row == i) {
+                            index = images.count
+                        }
+                        let url = "http://mqshen.qiniudn.com/\(message.content)"
+                        let cellPath = NSIndexPath(forItem: i, inSection: 0)
+                        if let cell = self.collectionView!.cellForRowAtIndexPath(cellPath) as? MessageCell {
+                            let photo = Photo(content: url, image: nil, srcImageView: cell.messageImageView, placeholder: message.image!, capture: message.image!)
+                            images.append(photo)
+                            photo.firstShow = i == indexPath.row
+                        }
+                        else {
+                            let photo = Photo(content: url, image: nil, srcImageView: nil, placeholder: message.image!, capture: message.image!)
+                            images.append(photo)
+                            photo.firstShow = i == indexPath.row
+                        }
+                    }
+                }
+                
+                let browser = PhotoBrowser()
+                browser.currentPhotoIndex = index
+                browser.photos = images
+                browser.show()
+            }
+        }
     }
     
     func didSelectAvatar(cell: MessageCell) {

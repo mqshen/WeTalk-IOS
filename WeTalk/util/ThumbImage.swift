@@ -40,4 +40,23 @@ extension UIImage {
     func base64String() -> String {
         return UIImagePNGRepresentation(self).base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
     }
+    
+    
+    func maskImage(maskImage: UIImage!) -> UIImage {
+        
+        let maskRef: CGImageRef! = maskImage.CGImage
+        let mask: CGImageRef! = CGImageMaskCreate(CGImageGetWidth(maskRef),
+            CGImageGetHeight(maskRef),
+            CGImageGetBitsPerComponent(maskRef),
+            CGImageGetBitsPerPixel(maskRef),
+            CGImageGetBytesPerRow(maskRef),
+            CGImageGetDataProvider(maskRef), nil, true)
+        
+        let sourceImage: CGImageRef! = self.CGImage
+        let masked: CGImageRef! = CGImageCreateWithMask(sourceImage, mask)
+        
+        var maskedImage = UIImage(CGImage: masked)
+        
+        return maskedImage!
+    }
 }
