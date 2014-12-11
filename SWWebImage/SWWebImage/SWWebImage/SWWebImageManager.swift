@@ -494,14 +494,14 @@ public class SWWebImageManager
                 completeHandler(nil, error, SWImageCacheType.None, true, url)
                 return operation
             }
-            synced(self.runningOperations) {
+            synced(self) {
                 self.runningOperations.append(operation)
             }
             
             let key = self.cacheKeyForURL(url)
             operation.cacheOperation = self.imageCache.queryDiskCache(key, doneHandler: { (image: UIImage?, cacheType: SWImageCacheType) -> Void in
                 if operation.cancelled {
-                    synced(self.runningOperations) {
+                    synced(self) {
                         if let index = find(self.runningOperations, operation)? {
                             self.runningOperations.removeAtIndex(index)
                         }
@@ -613,7 +613,7 @@ public class SWWebImageManager
                                     
                                 }
                                 if (finished) {
-                                    synced(self.runningOperations) {
+                                    synced(self) {
                                         if let index = find(self.runningOperations, operation)? {
                                             self.runningOperations.removeAtIndex(index)
                                         }
@@ -624,7 +624,7 @@ public class SWWebImageManager
                         operation.canceler = {
                             subOperation?.cancel()
                             
-                            synced(self.runningOperations) {
+                            synced(self) {
                                 if let index = find(self.runningOperations, operation)? {
                                     self.runningOperations.removeAtIndex(index)
                                 }
@@ -638,7 +638,7 @@ public class SWWebImageManager
                             completeHandler(image, nil, cacheType, true, url)
                         }
                     }
-                    synced(self.runningOperations) {
+                    synced(self) {
                         if let index = find(self.runningOperations, operation)? {
                             self.runningOperations.removeAtIndex(index)
                         }

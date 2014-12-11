@@ -22,6 +22,12 @@
 		F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3A1A246CB1007B009C /* TcpClient.swift */; };
 		F1288E401A247C37007B009C /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1288E3F1A247C37007B009C /* Serializable.swift */; };
 		F13892811A37295000E09641 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13892801A37295000E09641 /* ProgressView.swift */; };
+		F13F7BD91A3812FC0099FC67 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F7BD81A3812FC0099FC67 /* PopupView.swift */; };
+		F13F7BDB1A381A970099FC67 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F7BDA1A381A970099FC67 /* ImageButton.swift */; };
+		F13F7BDE1A381AFB0099FC67 /* bubble_min_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F7BDC1A381AFB0099FC67 /* bubble_min_HL@2x.png */; };
+		F13F7BDF1A381AFB0099FC67 /* tabbar_mainframe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F13F7BDD1A381AFB0099FC67 /* tabbar_mainframe@2x.png */; };
+		F13F7BE11A382B650099FC67 /* UserSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F7BE01A382B650099FC67 /* UserSelectViewController.swift */; };
+		F13F7BE31A382B870099FC67 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F7BE21A382B870099FC67 /* Checkbox.swift */; };
 		F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96011A29FB99001057B0 /* RecentViewController.swift */; };
 		F13F96041A29FC79001057B0 /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96031A29FC79001057B0 /* ChatViewCell.swift */; };
 		F13F96061A29FE84001057B0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F96051A29FE84001057B0 /* Message.swift */; };
@@ -59,6 +65,7 @@
 		F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */; };
 		F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25A1A260A02002A5E5C /* LoginModule.swift */; };
 		F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25C1A261088002A5E5C /* Deserializable.swift */; };
+		F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B38781A398C10006D3AC0 /* TimeoutManager.swift */; };
 		F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19F5E5C1A309C6F009445B2 /* sunflower.jpg */; };
 		F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BE45A81A2D583B008AC999 /* placeholder@2x.png */; };
 		F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE45AA1A2D5F4A008AC999 /* Session.swift */; };
@@ -68,6 +75,8 @@
 		F1BFC6621A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65E1A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png */; };
 		F1BFC6641A356D9A00BAC359 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1BFC6631A356D9A00BAC359 /* Alamofire.framework */; };
 		F1BFC6651A356D9A00BAC359 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1BFC6631A356D9A00BAC359 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F1CFC4611A3879EF0077A2F0 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC4601A3879EF0077A2F0 /* Group.swift */; };
+		F1CFC4631A3882020077A2F0 /* GroupProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */; };
 		F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77141A2FFA0200760486 /* QNUploadManager.swift */; };
 		F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77161A2FFF7100760486 /* QNCrc32.swift */; };
 		F1DB771A1A3008B700760486 /* CRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB77191A3008B700760486 /* CRC.swift */; };
@@ -128,6 +137,12 @@
 		F1288E3A1A246CB1007B009C /* TcpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpClient.swift; sourceTree = "<group>"; };
 		F1288E3F1A247C37007B009C /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		F13892801A37295000E09641 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		F13F7BD81A3812FC0099FC67 /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		F13F7BDA1A381A970099FC67 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
+		F13F7BDC1A381AFB0099FC67 /* bubble_min_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble_min_HL@2x.png"; sourceTree = "<group>"; };
+		F13F7BDD1A381AFB0099FC67 /* tabbar_mainframe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_mainframe@2x.png"; sourceTree = "<group>"; };
+		F13F7BE01A382B650099FC67 /* UserSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSelectViewController.swift; sourceTree = "<group>"; };
+		F13F7BE21A382B870099FC67 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		F13F96011A29FB99001057B0 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		F13F96031A29FC79001057B0 /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
 		F13F96051A29FE84001057B0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -164,6 +179,7 @@
 		F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F156E25A1A260A02002A5E5C /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		F156E25C1A261088002A5E5C /* Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializable.swift; sourceTree = "<group>"; };
+		F16B38781A398C10006D3AC0 /* TimeoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutManager.swift; sourceTree = "<group>"; };
 		F19F5E5C1A309C6F009445B2 /* sunflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunflower.jpg; sourceTree = "<group>"; };
 		F1BE45A81A2D583B008AC999 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		F1BE45AA1A2D5F4A008AC999 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -172,6 +188,8 @@
 		F1BFC65D1A35691500BAC359 /* SenderTextNodeBkgHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderTextNodeBkgHL@2x.png"; sourceTree = "<group>"; };
 		F1BFC65E1A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderVoiceNodeBkgHL@2x.png"; sourceTree = "<group>"; };
 		F1BFC6631A356D9A00BAC359 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Alamofire.framework; path = "/Users/goldratio/Library/Developer/Xcode/DerivedData/WeTalk-diemwnhgsnaavdcplihwejkxuqsa/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<absolute>"; };
+		F1CFC4601A3879EF0077A2F0 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupProcessor.swift; sourceTree = "<group>"; };
 		F1DB77141A2FFA0200760486 /* QNUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNUploadManager.swift; sourceTree = "<group>"; };
 		F1DB77161A2FFF7100760486 /* QNCrc32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QNCrc32.swift; sourceTree = "<group>"; };
 		F1DB77191A3008B700760486 /* CRC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRC.swift; sourceTree = "<group>"; };
@@ -233,29 +251,29 @@
 		F1288DB61A24525B007B009C /* WeTalk */ = {
 			isa = PBXGroup;
 			children = (
-				F1DBD4CA1A368BF5002A4A79 /* photo */,
+				F1288DB91A24525B007B009C /* AppDelegate.swift */,
+				F156E2181A26044F002A5E5C /* chat */,
+				F1288E391A24687E007B009C /* communition */,
+				F156E24E1A2604A3002A5E5C /* contacts */,
 				F1DB77181A3008A700760486 /* crypto */,
-				F1DB77131A2FF9F200760486 /* storage */,
+				F13F961A1A2A1B27001057B0 /* database */,
+				F1288DC31A24525B007B009C /* Images.xcassets */,
+				F1288E3E1A247C28007B009C /* json */,
+				F1288DC51A24525B007B009C /* LaunchScreen.xib */,
+				F1288DC01A24525B007B009C /* Main.storyboard */,
+				F156E2161A260367002A5E5C /* MainViewController.swift */,
+				F156E2531A2608C4002A5E5C /* module */,
+				F1DBD4CA1A368BF5002A4A79 /* photo */,
 				F13F96361A2B06BE001057B0 /* protocol */,
 				F13F96251A2AE7C7001057B0 /* resources */,
-				F13F961A1A2A1B27001057B0 /* database */,
-				F13F960D1A2A043C001057B0 /* util */,
-				F156E2531A2608C4002A5E5C /* module */,
-				F156E24E1A2604A3002A5E5C /* contacts */,
-				F156E2181A26044F002A5E5C /* chat */,
-				F1288E3E1A247C28007B009C /* json */,
-				F1288E391A24687E007B009C /* communition */,
-				F1288DDE1A2455A0007B009C /* widget */,
-				F1288DB91A24525B007B009C /* AppDelegate.swift */,
-				F1288DBE1A24525B007B009C /* ViewController.swift */,
-				F1288DC01A24525B007B009C /* Main.storyboard */,
-				F1288DC31A24525B007B009C /* Images.xcassets */,
-				F1288DC51A24525B007B009C /* LaunchScreen.xib */,
-				F1288DBB1A24525B007B009C /* WeTalk.xcdatamodeld */,
+				F1DB77131A2FF9F200760486 /* storage */,
 				F1288DB71A24525B007B009C /* Supporting Files */,
+				F13F960D1A2A043C001057B0 /* util */,
 				F1288DDC1A245368007B009C /* util.swift */,
-				F156E2161A260367002A5E5C /* MainViewController.swift */,
+				F1288DBE1A24525B007B009C /* ViewController.swift */,
 				F13F96211A2A1B8C001057B0 /* WeTalk-Bridging-Header.h */,
+				F1288DBB1A24525B007B009C /* WeTalk.xcdatamodeld */,
+				F1288DDE1A2455A0007B009C /* widget */,
 			);
 			path = WeTalk;
 			sourceTree = "<group>";
@@ -292,6 +310,9 @@
 				F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */,
 				F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */,
 				F13892801A37295000E09641 /* ProgressView.swift */,
+				F13F7BD81A3812FC0099FC67 /* PopupView.swift */,
+				F13F7BDA1A381A970099FC67 /* ImageButton.swift */,
+				F13F7BE21A382B870099FC67 /* Checkbox.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -301,6 +322,7 @@
 			children = (
 				F1288E3A1A246CB1007B009C /* TcpClient.swift */,
 				F1BE45AA1A2D5F4A008AC999 /* Session.swift */,
+				F16B38781A398C10006D3AC0 /* TimeoutManager.swift */,
 			);
 			path = communition;
 			sourceTree = "<group>";
@@ -357,6 +379,7 @@
 			children = (
 				F13F96371A2B06CD001057B0 /* Command.swift */,
 				F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */,
+				F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -364,6 +387,8 @@
 		F156E2181A26044F002A5E5C /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				F13F7BDC1A381AFB0099FC67 /* bubble_min_HL@2x.png */,
+				F13F7BDD1A381AFB0099FC67 /* tabbar_mainframe@2x.png */,
 				F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */,
 				F1BFC65C1A35691500BAC359 /* SenderAppNodeBkg@2x.png */,
 				F1BFC65D1A35691500BAC359 /* SenderTextNodeBkgHL@2x.png */,
@@ -380,6 +405,8 @@
 				F13F96101A2A0C75001057B0 /* MessageKeyboardController.swift */,
 				F13F96121A2A0D02001057B0 /* MessageCell.swift */,
 				F13F96141A2A0F66001057B0 /* MessageTextView.swift */,
+				F13F7BE01A382B650099FC67 /* UserSelectViewController.swift */,
+				F1CFC4601A3879EF0077A2F0 /* Group.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -515,6 +542,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13F962E1A2AE7C7001057B0 /* add@2x.png in Resources */,
+				F13F7BDE1A381AFB0099FC67 /* bubble_min_HL@2x.png in Resources */,
+				F13F7BDF1A381AFB0099FC67 /* tabbar_mainframe@2x.png in Resources */,
 				F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */,
 				F1288DC21A24525B007B009C /* Main.storyboard in Resources */,
 				F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */,
@@ -552,7 +581,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CFC4611A3879EF0077A2F0 /* Group.swift in Sources */,
 				F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */,
+				F13F7BDB1A381A970099FC67 /* ImageButton.swift in Sources */,
 				F1DBD4CE1A368D30002A4A79 /* Photo.swift in Sources */,
 				F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */,
 				F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */,
@@ -562,6 +593,7 @@
 				F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */,
 				F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */,
 				F14083331A2DA2DF008EAD35 /* TimeAgo.swift in Sources */,
+				F13F7BE11A382B650099FC67 /* UserSelectViewController.swift in Sources */,
 				F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */,
 				F13F96151A2A0F66001057B0 /* MessageTextView.swift in Sources */,
 				F13F96171A2A0FAA001057B0 /* ContactsViewController.swift in Sources */,
@@ -570,7 +602,9 @@
 				F11EFD701A34927B00C1D274 /* ImageMessageView.swift in Sources */,
 				F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */,
 				F13F96111A2A0C75001057B0 /* MessageKeyboardController.swift in Sources */,
+				F13F7BD91A3812FC0099FC67 /* PopupView.swift in Sources */,
 				F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */,
+				F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */,
 				F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */,
 				F1DB77291A30917400760486 /* File.swift in Sources */,
 				F13892811A37295000E09641 /* ProgressView.swift in Sources */,
@@ -581,12 +615,14 @@
 				F13F96131A2A0D02001057B0 /* MessageCell.swift in Sources */,
 				F13F961D1A2A1B27001057B0 /* PersistenceProcessor.swift in Sources */,
 				F1DB771F1A30221D00760486 /* QNHttpManager.swift in Sources */,
+				F13F7BE31A382B870099FC67 /* Checkbox.swift in Sources */,
 				F14AB4941A2E0BE10082CECC /* MessageProcessor.swift in Sources */,
 				F1288DBD1A24525B007B009C /* WeTalk.xcdatamodeld in Sources */,
 				F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */,
 				F1DB771A1A3008B700760486 /* CRC.swift in Sources */,
 				F156E2171A260367002A5E5C /* MainViewController.swift in Sources */,
 				F1288DDD1A245368007B009C /* util.swift in Sources */,
+				F1CFC4631A3882020077A2F0 /* GroupProcessor.swift in Sources */,
 				F13F96081A2A02C6001057B0 /* MessageViewController.swift in Sources */,
 				F13F96061A29FE84001057B0 /* Message.swift in Sources */,
 				F13F961E1A2A1B27001057B0 /* SQLiteDB.swift in Sources */,

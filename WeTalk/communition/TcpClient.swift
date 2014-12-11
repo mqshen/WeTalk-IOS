@@ -163,8 +163,8 @@ public class TcpClient : NSObject, NSStreamDelegate {
         var offset = 0
         for index in 1...(bufferLen - 2) {
             if(buffer[index] == 13 && buffer[index + 1] == 10) {
+                processResponse(NSData(bytes: buffer + offset, length: index - offset))
                 offset = index + 2
-                processResponse(NSData(bytes: buffer, length: index))
             }
         }
         if(offset < bufferLen) {

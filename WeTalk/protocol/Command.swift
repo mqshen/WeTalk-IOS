@@ -8,15 +8,31 @@
 
 import Foundation
 
+
+func commandResponseArrived(json: JSON) {
+    if let msgId = json["seqNo"].string? {
+        TimeoutManager.sharedInstance.removeCommand(msgId)
+    }
+}
+
+
+protocol TimeoutCheckable {
+    var seqNo: String {get}
+    var timestamp: Int64 {get}
+}
 protocol Command {
     
     func responseKey() -> String
     
     func handle(json: JSON)
+    
+    func timeoutHandler()
 }
 
 
-class UserAuth : Serializable {
+class UserAuth : Serializable, TimeoutCheckable {
+    var seqNo: String = Session.sharedInstance.messageId
+    var timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
     let userName: String
     let password: String
     
@@ -33,8 +49,6 @@ class UserAuth : Serializable {
     func packageData() -> NSString {
         return "1:1:" + self.toJsonString()
     }
-    
-    
 }
 
 class LoginProcessor: Command {
@@ -44,6 +58,7 @@ class LoginProcessor: Command {
     }
     
     func handle(json: JSON) {
+        commandResponseArrived(json)
         NSNotificationCenter.defaultCenter().postNotificationName(LoginNotification, object: nil, userInfo: nil)
         if let user = json["user"].toObject("User") as? User {
             let session = Session.sharedInstance
@@ -51,13 +66,16 @@ class LoginProcessor: Command {
         }
     }
     
+    func timeoutHandler() {
+        
+    }
 }
 
-class ContactsRefresh: Serializable {
-    let seqNo: Int
+class ContactsRefresh: Serializable,TimeoutCheckable {
+    var seqNo: String = Session.sharedInstance.messageId
+    var timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
     
-    init(seqNo: Int) {
-        self.seqNo = seqNo;
+    override init() {
         super.init()
     }
 
@@ -71,7 +89,35 @@ class ContactsRefresh: Serializable {
     
 }
 
+class MessageReceiveProcessor: Command {
+    var seqNo: String = Session.sharedInstance.messageId
+    var timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+    
+    let viewController: MainViewController
+    init(viewController: MainViewController) {
+        self.viewController = viewController
+    }
+    
+    func responseKey() -> String {
+        return "3:1"
+    }
+    
+    func handle(json: JSON) {
+        
+        commandResponseArrived(json)
+        
+    }
+    
+    func timeoutHandler() {
+        
+    }
+    
+}
+
 class ContactsProcessor: Command {
+    var seqNo: String = Session.sharedInstance.messageId
+    var timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
+    
     let viewController: ContactsViewController
     
     init(viewController: ContactsViewController) {
@@ -96,4 +142,7 @@ class ContactsProcessor: Command {
         viewController.tableView.reloadData()
     }
     
+    func timeoutHandler() {
+        
+    }
 }

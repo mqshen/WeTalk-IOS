@@ -28,6 +28,10 @@ class PersistenceProcessor
             if sqlite3_exec(db, sql_stmt, nil, nil, nil) != SQLITE_OK {
                 println("create table success")
             }
+            let grop_stmt = "CREATE TABLE IF NOT EXISTS FRIEND (id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Type INTEGER)"
+            if sqlite3_exec(db, grop_stmt , nil, nil, nil) != SQLITE_OK {
+                println("create table success")
+            }
             
             let session_stmt = "CREATE TABLE IF NOT EXISTS Session (Type TEXT PRIMARY KEY, Value TEXT)"
             if sqlite3_exec(db, session_stmt, nil, nil, nil) != SQLITE_OK {
@@ -45,6 +49,10 @@ class PersistenceProcessor
     
     func addFriend(friend: User) {
         database.execute("INSERT INTO FRIEND(id, UserName, NickName, Avatar, Type) VALUES ('\(friend.id)',  '\(friend.name)',  '\(friend.nick)', '\(friend.avatar)', '\(friend.userType.rawValue)' )")
+    }
+    
+    func addGroup(group: Group) {
+        database.execute("INSERT INTO Group(id, UserName, NickName, Avatar, Type) VALUES ('\(group.id)',  '\(group.name)',  '\(group.name)', '\(group.avatar)', '1' )")
     }
     
     func deleteFriend(friend: User) {
@@ -91,7 +99,6 @@ class PersistenceProcessor
         }
         else {
             database.execute("INSERT INTO 'Chat_\(message.from)' (fromId, toId, content,  timestamp, status, messageType) VALUES ('\(message.from)', '\(message.to)', '\(message.content)', \(message.timestamp), \(message.status.rawValue), \(message.messageType.rawValue))")
-            
         }
     }
     
@@ -104,16 +111,20 @@ class PersistenceProcessor
         }
     }
     
-    func getRecentChats() -> Array<(String, Message?)> {
+    func getRecentChats() -> Array<(String, UserType, Message?)> {
         let data = database.query("SELECT name FROM sqlite_master WHERE type='table' and name like 'Chat_%'")
         
-        var chats = Array<(String, Message?)>()
+        var chats = Array<(String, UserType, Message?)>()
         for row in data {
             if let name = row["name"]?.asString() {
-                let userName = name.subStringFrom(5)
+                var userId = name.subStringFrom(5)
+                var userType = UserType.User
+                if userId.rangeOfString("@room") != nil{
+                    userType = UserType.Room
+                }
                 let data = database.query("SELECT Id, fromId, toId, content, attach, timestamp, status, messageType FROM '\(name)' ORDER BY Id DESC LIMIT 1")
                 if let row = data.first? {
-                    let id = row["Id"]?.asInt64()
+                    let id = row["Id"]?.asString()
                     let from = row["fromId"]?.asString()
                     let to = row["toId"]?.asString()
                     let content = row["content"]?.asString()
@@ -125,7 +136,7 @@ class PersistenceProcessor
                     //init(seqNo: Int64, from: String, to: String, content: String, attach: String?, timestamp: Int64, status: MessageStatus = .Receive) {
                         
                     let message = Message(seqNo: id!,
-                        from: userName,
+                        from: userId,
                         to: to!,
                         content: content!,
                         attach: attach,
@@ -133,11 +144,11 @@ class PersistenceProcessor
                         status: MessageStatus(rawValue: status!)!,
                         messageType: MessageType(rawValue: messageType!)!)
                     
-                    let element: (String, Message?) = (userName, message)
+                    let element: (String, UserType, Message?) = (userId, userType, message)
                     chats.append(element)
                 }
                 else {
-                    let element: (String, Message?) = (userName, nil)
+                    let element: (String, UserType, Message?) = (userId, userType, nil)
                     chats.append(element)
                 }
             }
@@ -150,7 +161,7 @@ class PersistenceProcessor
         let data = database.query("SELECT Id, fromId, toId, content, attach, timestamp, status, messageType FROM 'Chat_\(userName)' ORDER BY timestamp DESC LIMIT \(skip), \(size)")
         var messages = [Message]()
         for row in data {
-            let id = row["Id"]?.asInt64()
+            let id = row["Id"]?.asString()
             let from = row["fromId"]?.asString()
             let to = row["toId"]?.asString()
             let content = row["content"]?.asString()

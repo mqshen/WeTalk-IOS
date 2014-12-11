@@ -23,6 +23,9 @@ class MainViewController: UITabBarController, UITextFieldDelegate, UITabBarContr
         let mainNavigateController = UINavigationController(rootViewController: recentViewController)
         self.viewControllers = [mainNavigateController, UINavigationController(rootViewController: contactsViewController)]
         self.delegate = self
+        
+        let messageReceiveProcessor = MessageReceiveProcessor(viewController: self)
+        Session.sharedInstance.packageProcessors[messageReceiveProcessor.responseKey()] = messageReceiveProcessor
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -85,9 +88,14 @@ class MainViewController: UITabBarController, UITextFieldDelegate, UITabBarContr
         if let userInfo = note.userInfo? {
             if let object: AnyObject = userInfo["user"]? {
                 self.selectedIndex = 0
-                let user = object as User
-                self.recentViewController.startChat(user.id)
-                PersistenceProcessor.sharedInstance.createChatTable(user.id)
+                if let user = object as? User {
+                    self.recentViewController.startChat(user.id, userType: user.userType)
+                    PersistenceProcessor.sharedInstance.createChatTable(user.id)
+                }
+                else if let group = object as? Group {
+                    self.recentViewController.startChat(group.id, userType: UserType.Room)
+                    PersistenceProcessor.sharedInstance.createChatTable("\(group.id)")
+                }
             }
         }
     }

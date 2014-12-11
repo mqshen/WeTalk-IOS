@@ -58,7 +58,6 @@ class ViewController: FormViewController, FormViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "doLogin", name: LoginNotification, object: nil)
     }
 

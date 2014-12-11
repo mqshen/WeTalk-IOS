@@ -26,4 +26,7 @@ class MessageProcessor: Command {
         }
     }
     
+    func timeoutHandler() {
+        
+    }
 }

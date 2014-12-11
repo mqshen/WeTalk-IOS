@@ -13,7 +13,7 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
 {
     var searchBar: UISearchBar?
     
-    override init(style: UITableViewStyle = UITableViewStyle.Plain) {
+    override init(style: UITableViewStyle = UITableViewStyle.Grouped) {
         super.init(style: style)
         self.tabBarItem = UITabBarItem(title: "通讯录",
             image:  UIImage(named: "tabbar_contacts@2x.png"),
@@ -27,13 +27,17 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
         self.tabBarItem = UITabBarItem(title: "通讯录",
             image:  UIImage(named: "tabbar_contacts@2x.png"),
             selectedImage: UIImage(named: "tabbar_contactsHL@2x.png"))
-        self.refreshFriends()
     }
     
     func refreshFriends() {
-        let contactsProcessor = ContactsProcessor(viewController: self)
-        Session.sharedInstance.packageProcessors[contactsProcessor.responseKey()] = contactsProcessor
         let session = Session.sharedInstance
+        
+        let contactsProcessor = ContactsProcessor(viewController: self)
+        session.packageProcessors[contactsProcessor.responseKey()] = contactsProcessor
+        
+        let listGroupProcessor = ListGroupProcessor(viewController: self)
+        session.packageProcessors[listGroupProcessor.responseKey()] = listGroupProcessor
+        
         session.refreshFriends()
     }
     
@@ -63,26 +67,49 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
         self.tableView.reloadData()
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let session = Session.sharedInstance
+        if session.groups.count > 0 {
+            return 2
+        }
+        else {
+            return 1
+        }
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Session.sharedInstance.friends.count
+        let session = Session.sharedInstance
+        if session.groups.count > 0 && section == 0 {
+            return session.groups.count
+            
+        }
+        return session.friends.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let session = Session.sharedInstance
         var cell: ContactViewCell? = tableView.dequeueReusableCellWithIdentifier( "neighborCell" ) as? ContactViewCell
         if (cell == nil) {
             cell = ContactViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "neighborCell")
             //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        let user = Session.sharedInstance.friends[indexPath.row]
-        //if user.userType == UserType.User {
-        if user.userType == UserType.User {
-            cell?.setAvatar(user.avatar)
+        
+        if session.groups.count > 0 && indexPath.section == 0 {
+            let group = session.groups[indexPath.row]
+            cell?.swImageView.image = UIImage(named: "room@2x.png")
+            cell?.textLabel?.text = group.name
         }
         else {
-            cell?.swImageView.image = UIImage(named: "room@2x.png")
+            let user = session.friends[indexPath.row]
+            if user.userType == UserType.User {
+                cell?.setAvatar(user.avatar)
+            }
+            else {
+                cell?.swImageView.image = UIImage(named: "room@2x.png")
+            }
+            
+            cell?.textLabel?.text = user.nick
         }
-        
-        cell?.textLabel?.text = user.nick
         return cell!
     }
     
@@ -91,7 +118,14 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var user = Session.sharedInstance.friends[indexPath.row]
-        NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
+        let session = Session.sharedInstance
+        if session.groups.count > 0 && indexPath.section == 0 {
+            var user = session.groups[indexPath.row]
+            NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
+        }
+        else {
+            var user = session.friends[indexPath.row]
+            NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
+        }
     }
 }

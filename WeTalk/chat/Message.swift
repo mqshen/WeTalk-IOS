@@ -14,12 +14,12 @@ enum MessageStatus: Int {
 }
 
 enum MessageType: Int {
-    case Text, Image, Sound, Video
+    case Text, Image, Audio, Video
 }
 
-class Message: Serializable
+class Message: Serializable, TimeoutCheckable
 {
-    let seqNo: Int64
+    let seqNo: String
     let from: String
     let to: String
     let messageType: MessageType
@@ -29,7 +29,7 @@ class Message: Serializable
     let status: MessageStatus = .Receive
     
     required init(json: JSON) {
-        self.seqNo = json["seqNo"].int64Value
+        self.seqNo = json["seqNo"].stringValue
         self.from = json["from"].stringValue
         self.to = json["to"].stringValue
         self.content = json["content"].stringValue
@@ -43,7 +43,7 @@ class Message: Serializable
     }
     
     override init() {
-        self.seqNo = 0
+        self.seqNo = ""
         self.from = ""
         self.to = ""
         self.content = ""
@@ -52,7 +52,7 @@ class Message: Serializable
         super.init()
     }
     
-    init(seqNo: Int64, from: String, to: String, content: String, attach: String?, timestamp: Int64, messageType: MessageType = .Text, status: MessageStatus = .Receive) {
+    init(seqNo: String, from: String, to: String, content: String, attach: String?, timestamp: Int64, messageType: MessageType = .Text, status: MessageStatus = .Receive) {
         self.seqNo = seqNo
         self.from = from
         self.to = to

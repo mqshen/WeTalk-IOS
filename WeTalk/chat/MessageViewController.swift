@@ -34,7 +34,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var preTimestamp:Int64 = 0
     
-    var user: User?
+    var user: Chatable?
     
 //    var toUser: User? {
 //        get {
@@ -405,7 +405,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let heightFromBottom = CGRectGetHeight(collectFrame) - CGRectGetMinY(keyboardFrame)
         
         self.setToolbarBottomLayoutGuideConstant(heightFromBottom)
-        //self.scrollToBottomAnimated(true)
+        self.scrollToBottomAnimated(false)
     }
     
     func setToolbarBottomLayoutGuideConstant(constant: CGFloat) {
@@ -427,7 +427,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             let now = NSDate()
             
             
-            let message = Message(seqNo: Int64(0),
+            let message = Message(seqNo: Session.sharedInstance.messageId,
                 from: session.user!.id,
                 to: user!.id,
                 content: content,
@@ -483,7 +483,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func genMediaView() {
         if(self.mediaView == nil) {
-            self.mediaView = UIView(frame: CGRectMake(0, 110, 320, 110))
+            self.mediaView = UIView(frame: CGRectMake(0, 110, 320, 220))
             self.mediaView?.backgroundColor = UIColor.whiteColor()
             let bottomBorder = CALayer()
             bottomBorder.frame = CGRectMake(0, 0, 320, 1)
@@ -526,10 +526,10 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.scrollToBottomAnimated(true)
     }
     
-    func finishSendingOrReceivingMessage() {
+    func finishSendingOrReceivingMessage(_ animation: Bool = true) {
         dispatch_async(dispatch_get_main_queue(), {
             self.collectionView?.reloadData()
-            self.scrollToBottomAnimated(true)
+            self.scrollToBottomAnimated(animation)
         })
         
         //        self.collectionView?.performBatchUpdates({ () -> Void in
@@ -551,7 +551,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.messages.append(message)
         }
         
-        self.finishSendingOrReceivingMessage()
+        self.finishSendingOrReceivingMessage(false)
     }
     
     func messageSent(messageId: String!) {
@@ -576,7 +576,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         //let thumbImageData = UIImageJPEGRepresentation(thumbImage, 1.0);
         let encodedString = thumbImage.base64String()
         
-        let message = Message(seqNo: Int64(0),
+        let message = Message(seqNo: Session.sharedInstance.messageId,
             from: session.user!.id,
             to: user!.id,
             content: fileName,

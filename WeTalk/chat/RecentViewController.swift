@@ -14,9 +14,10 @@ class RecentViewController: UITableViewController
     
     var searchBar: UISearchBar?
     
-    var chats:[(String, Message?)] = PersistenceProcessor.sharedInstance.getRecentChats()
+    var chats:[(String, UserType, Message?)] = PersistenceProcessor.sharedInstance.getRecentChats()
     var currentUserId: String? = nil
     var messageViewController: MessageViewController?
+    var toolView: PopupView?
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -50,6 +51,14 @@ class RecentViewController: UITableViewController
         self.searchBar = UISearchBar()
         self.searchBar?.sizeToFit()
         self.tableView.tableHeaderView = self.searchBar
+        
+        
+        let chatButton = UIBarButtonItem(image: UIImage(named: "add@2x.png"),
+            style: UIBarButtonItemStyle.Plain,
+            target: self,
+            action: "showAddChat")
+        
+        self.navigationItem.rightBarButtonItem = chatButton
     }
     
     
@@ -73,15 +82,25 @@ class RecentViewController: UITableViewController
             cell = ChatViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "neighborCell")
             //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        let id = self.chats[indexPath.row].0
-        if let user = Session.sharedInstance.getUserById(id) {
+        let item = self.chats[indexPath.row]
+        //let id = self.chats[indexPath.row].0
+        if let user = Session.sharedInstance.getUserById(item.0, userType: item.1) {
             cell?.textLabel?.text = user.nick
+            cell?.setAvatar(user.avatar)
         }
         
-        if let message = self.chats[indexPath.row].1? {
+        if let message = self.chats[indexPath.row].2? {
             let time = NSDate(timeIntervalSince1970: Double(message.timestamp / 1000))
             cell?.timeLabel.text = time.detailDateTimeUntilNow()
-            cell?.recentLabel.text = message.content
+            if message.messageType == .Text {
+                cell?.recentLabel.text = message.content
+            }
+            else if message.messageType == .Image {
+                cell?.recentLabel.text = "[图片]"
+            }
+            else if message.messageType == .Audio {
+                cell?.recentLabel.text = "[语音]"
+            }
         }
         return cell!
     }
@@ -90,21 +109,21 @@ class RecentViewController: UITableViewController
         return 55
     }
     
-    func startChat(id: String) {
+    func startChat(id: String, userType: UserType) {
         for chat in chats {
-            if id == chat.0 {
-                self.pushViewController(id)
+            if id == chat.0 && userType == chat.1 {
+                self.pushViewController(id, userType: userType)
                 return
             }
         }
-        let element: (String, Message?) = (id, nil)
+        let element: (String, UserType, Message?) = (id, userType, nil)
         chats.append(element)
         self.tableView.reloadData()
-        self.pushViewController(id)
+        self.pushViewController(id, userType: userType)
     }
     
-    func pushViewController(id: String) {
-        if let user = Session.sharedInstance.getUserById(id)? {
+    func pushViewController(id: String, userType: UserType) {
+        if let user = Session.sharedInstance.getUserById(id, userType: userType)? {
             let messageViewController = MessageViewController()
             messageViewController.hidesBottomBarWhenPushed = true
             messageViewController.user = user
@@ -118,7 +137,8 @@ class RecentViewController: UITableViewController
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let userName = self.chats[indexPath.row].0
-        self.pushViewController(userName)
+        let userType = self.chats[indexPath.row].1
+        self.pushViewController(userName, userType: userType)
     }
     
     func receiveMessage(message: Message) {
@@ -129,5 +149,23 @@ class RecentViewController: UITableViewController
             }
         
         }
+    }
+    
+    func showAddChat() {
+        let imageButton = ImageButton(frame: CGRectMake(5, 5, 70, 40),
+            image: UIImage(named: "tabbar_mainframe.png")!, text: "发起群聊", textColor:  UIColor.whiteColor(), vertical: false)
+        imageButton.textLabel.font = UIFont.systemFontOfSize(9)
+        imageButton.addTarget(self, action: "doAddGroupChat", forControlEvents:UIControlEvents.ValueChanged)
+        self.toolView = PopupView(frame: CGRectMake(260, 0, 80, 150))
+        self.toolView?.addSubview(imageButton)
+        self.toolView?.popup()
+    }
+    
+    func doAddGroupChat() {
+        self.toolView?.hide()
+        
+        let vc = UserSelectViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        self.presentViewController(navVC, animated: true, completion: nil)
     }
 }
