@@ -151,6 +151,16 @@ class RecentViewController: UITableViewController
         }
     }
     
+    func timeout(message: Message) {
+        PersistenceProcessor.sharedInstance.setMessageTimeout(message)
+        if let currentUserId = self.currentUserId? {
+            if(message.to == currentUserId) {
+                self.messageViewController?.timeout(message)
+            }
+            
+        }
+    }
+    
     func showAddChat() {
         let imageButton = ImageButton(frame: CGRectMake(5, 5, 70, 40),
             image: UIImage(named: "tabbar_mainframe.png")!, text: "发起群聊", textColor:  UIColor.whiteColor(), vertical: false)

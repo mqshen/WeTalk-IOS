@@ -52,6 +52,8 @@ class MessageCell: UITableViewCell
     var refresh: UIActivityIndicatorView?
     var delegate: MessageCellDelegate?
     
+    var errorView: UIImageView?
+    
     func setTime(show: Bool) {
         if _showTime == show {
             //timeLabel?.text = _message?.customData["nickname"]
@@ -183,6 +185,22 @@ class MessageCell: UITableViewCell
     
     func setProgress(progress: Double) {
         
+    }
+    
+    func setStatus(status: MessageStatus) {
+        if(status == .Timeout) {
+            if errorView == nil {
+                self.errorView = UIImageView(image: UIImage(named: "error.png"))
+            }
+            let frame = self.messageBubbleContainerView!.frame
+            let left = frame.origin.x - 20
+            let top = (frame.size.height - 17) / 2
+            var errorFrame = self.errorView!.frame
+            errorFrame.origin.x = left
+            errorFrame.origin.y = top
+            self.errorView?.frame = errorFrame
+            self.addSubview(self.errorView!)
+        }
     }
 }
 

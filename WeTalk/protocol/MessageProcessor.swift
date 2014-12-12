@@ -26,7 +26,9 @@ class MessageProcessor: Command {
         }
     }
     
-    func timeoutHandler() {
-        
+    func timeoutHandler(timeout: TimeoutCheckable) {
+        if let message = timeout as? Message {
+            self.viewController.timeout(message)
+        }
     }
 }

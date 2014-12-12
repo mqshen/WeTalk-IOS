@@ -102,13 +102,19 @@ class PersistenceProcessor
         }
     }
     
-    func sendMessage(message: Message) {
+    func sendMessage(message: Message) -> Int? {
         if let attach = message.attach? {
             database.execute("INSERT INTO 'Chat_\(message.to)' (fromId, toId, content, attach, timestamp, status, messageType) VALUES ('\(message.from)', '\(message.to)', '\(message.content)', '\(attach)', \(message.timestamp), \(message.status.rawValue), \(message.messageType.rawValue))")
         }
         else {
             database.execute("INSERT INTO 'Chat_\(message.to)' (fromId, toId, content, timestamp, status, messageType) VALUES ('\(message.from)', '\(message.to)', '\(message.content)', \(message.timestamp), \(message.status.rawValue), \(message.messageType.rawValue))")
         }
+        let idData = database.query("SELECT last_insert_rowid() Id FROM 'Chat_\(message.to)'")
+        if let row = idData.first? {
+            let id = row["Id"]?.asInt()
+            return id
+        }
+        return nil
     }
     
     func getRecentChats() -> Array<(String, UserType, Message?)> {
@@ -183,5 +189,11 @@ class PersistenceProcessor
             messages.append(message)
         }
         return messages.reverse()
+    }
+    
+    func setMessageTimeout(message: Message) {
+        if let id = message.id? {
+             database.execute("UPDATE 'Chat_\(message.to)' SET Status = '\(MessageStatus.Timeout.rawValue)' WHERE id = \(id)")
+        }
     }
 }

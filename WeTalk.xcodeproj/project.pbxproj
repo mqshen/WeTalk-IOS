@@ -66,6 +66,7 @@
 		F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25A1A260A02002A5E5C /* LoginModule.swift */; };
 		F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25C1A261088002A5E5C /* Deserializable.swift */; };
 		F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B38781A398C10006D3AC0 /* TimeoutManager.swift */; };
+		F19AAD221A3ACA3B00D9D2B0 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */; };
 		F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19F5E5C1A309C6F009445B2 /* sunflower.jpg */; };
 		F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BE45A81A2D583B008AC999 /* placeholder@2x.png */; };
 		F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE45AA1A2D5F4A008AC999 /* Session.swift */; };
@@ -180,6 +181,7 @@
 		F156E25A1A260A02002A5E5C /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		F156E25C1A261088002A5E5C /* Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializable.swift; sourceTree = "<group>"; };
 		F16B38781A398C10006D3AC0 /* TimeoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutManager.swift; sourceTree = "<group>"; };
+		F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
 		F19F5E5C1A309C6F009445B2 /* sunflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunflower.jpg; sourceTree = "<group>"; };
 		F1BE45A81A2D583B008AC999 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		F1BE45AA1A2D5F4A008AC999 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 		F156E2181A26044F002A5E5C /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */,
 				F13F7BDC1A381AFB0099FC67 /* bubble_min_HL@2x.png */,
 				F13F7BDD1A381AFB0099FC67 /* tabbar_mainframe@2x.png */,
 				F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */,
@@ -544,6 +547,7 @@
 				F13F962E1A2AE7C7001057B0 /* add@2x.png in Resources */,
 				F13F7BDE1A381AFB0099FC67 /* bubble_min_HL@2x.png in Resources */,
 				F13F7BDF1A381AFB0099FC67 /* tabbar_mainframe@2x.png in Resources */,
+				F19AAD221A3ACA3B00D9D2B0 /* error@2x.png in Resources */,
 				F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */,
 				F1288DC21A24525B007B009C /* Main.storyboard in Resources */,
 				F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */,

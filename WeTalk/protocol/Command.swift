@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 
 func commandResponseArrived(json: JSON) {
     if let msgId = json["seqNo"].string? {
         TimeoutManager.sharedInstance.removeCommand(msgId)
     }
+}
+
+func showError(message: String) {
+    let view = UIAlertView(title: "错误", message: message, delegate: nil, cancelButtonTitle:"确定")
+    view.show()
 }
 
 
@@ -26,7 +32,7 @@ protocol Command {
     
     func handle(json: JSON)
     
-    func timeoutHandler()
+    func timeoutHandler(timeout: TimeoutCheckable)
 }
 
 
@@ -66,8 +72,8 @@ class LoginProcessor: Command {
         }
     }
     
-    func timeoutHandler() {
-        
+    func timeoutHandler(timeout: TimeoutCheckable) {
+        showError("登录超时")
     }
 }
 
@@ -108,7 +114,7 @@ class MessageReceiveProcessor: Command {
         
     }
     
-    func timeoutHandler() {
+    func timeoutHandler(timeout: TimeoutCheckable) {
         
     }
     
@@ -142,7 +148,7 @@ class ContactsProcessor: Command {
         viewController.tableView.reloadData()
     }
     
-    func timeoutHandler() {
+    func timeoutHandler(timeout: TimeoutCheckable) {
         
     }
 }

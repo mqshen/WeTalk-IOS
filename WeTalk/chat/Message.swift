@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum MessageStatus: Int {
-    case Send, Receive
+    case Send, Receive, Timeout
 }
 
 enum MessageType: Int {
@@ -19,6 +19,7 @@ enum MessageType: Int {
 
 class Message: Serializable, TimeoutCheckable
 {
+    var id: Int?
     let seqNo: String
     let from: String
     let to: String

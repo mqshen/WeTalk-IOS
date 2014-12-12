@@ -217,20 +217,20 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         var cellIdentify = IncomingMessage
         
         
-        if(message.status == .Send ) {
-            if(message.messageType == .Image) {
-                cellIdentify = OutgoingImageMessage
-            }
-            else {
-                cellIdentify = OutgoingMessage
-            }
-        }
-        else {
+        if(message.status == .Receive) {
             if(message.messageType == .Image) {
                 cellIdentify = IncomingImageMessage
             }
             else {
                 cellIdentify = IncomingMessage
+            }
+        }
+        else {
+            if(message.messageType == .Image) {
+                cellIdentify = OutgoingImageMessage
+            }
+            else {
+                cellIdentify = OutgoingMessage
             }
         }
         
@@ -444,7 +444,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             session.sendMessage(message)
             
-            PersistenceProcessor.sharedInstance.sendMessage(message)
+            message.id = PersistenceProcessor.sharedInstance.sendMessage(message)
             
             self.messages.append(message)
             textView.text = ""
@@ -585,7 +585,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             messageType: .Image,
             status: .Send)
         
-        PersistenceProcessor.sharedInstance.sendMessage(message)
+        message.id = PersistenceProcessor.sharedInstance.sendMessage(message)
         
         self.messages.append(message)
         self.finishSendingOrReceivingMessage()
@@ -689,6 +689,19 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func didSelectAvatar(cell: MessageCell) {
         
+    }
+    
+    func timeout(message: Message) {
+        let size = self.messages.count
+        for i in 1...size {
+            if self.messages[size - i].id == message.id {
+                let cellPath = NSIndexPath(forItem: (size - i), inSection: 0)
+                if let cell = self.collectionView!.cellForRowAtIndexPath(cellPath) as? MessageCell {
+                    cell.setStatus(.Timeout)
+                }
+                break
+            }
+        }
     }
     
     func hideInput() {

@@ -50,7 +50,7 @@ class ListGroupProcessor: Command {
         viewController.tableView.reloadData()
     }
     
-    func timeoutHandler() {
+    func timeoutHandler(timeout: TimeoutCheckable) {
         
     }
 }
@@ -73,7 +73,7 @@ class GroupProcessor: Command {
         PersistenceProcessor.sharedInstance.addGroup(group)
     }
     
-    func timeoutHandler() {
+    func timeoutHandler(timeout: TimeoutCheckable) {
         
     }
 }
