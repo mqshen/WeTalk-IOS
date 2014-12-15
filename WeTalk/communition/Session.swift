@@ -197,16 +197,29 @@ class Session: TcpClientDelegate {
     }
     
     func createGroup(name: String, members: [String]) {
-        let group = Group(seqNo: 1, name: name, members: members)
+        let group = GroupRequest(name: name, members: members)
         connection.writeString(group.packageData())
     }
     
     func refreshFriends() {
-        let refresh = ContactsRefresh()
-        connection.writeString(refresh.packageData())
         
-        let refreshGroups = ListGroup()
-        connection.writeString(refreshGroups.packageData())
+        let syncKey = PersistenceProcessor.sharedInstance.getSyncKey()
+        if syncKey < 0 {
+            let refresh = ContactsRefresh()
+            connection.writeString(refresh.packageData())
+            
+            let refreshGroups = ListGroup()
+            connection.writeString(refreshGroups.packageData())
+            PersistenceProcessor.sharedInstance.updateSyncKey(0)
+        }
+        else {
+            self.friends = PersistenceProcessor.sharedInstance.getFriends()
+            self.groups = PersistenceProcessor.sharedInstance.getGroup()
+            let syncProcessor = UserSyncProcessor()
+            self.packageProcessors[syncProcessor.responseKey()] = syncProcessor
+            let userSync = UserSync(syncKey: syncKey, userId: 0)
+            connection.writeString(userSync.packageData())
+        }
     }
     
     func getUser(userName: String) -> User? {

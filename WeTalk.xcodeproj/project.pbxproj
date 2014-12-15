@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F117EE5E1A3BD612005EB5A5 /* UserSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = F117EE5D1A3BD612005EB5A5 /* UserSync.swift */; };
 		F11EFD6C1A3469CB00C1D274 /* ThumbImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */; };
 		F11EFD6E1A34827B00C1D274 /* MessgeContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */; };
 		F11EFD701A34927B00C1D274 /* ImageMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */; };
@@ -119,6 +120,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F117EE5D1A3BD612005EB5A5 /* UserSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSync.swift; sourceTree = "<group>"; };
 		F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbImage.swift; sourceTree = "<group>"; };
 		F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessgeContainter.swift; sourceTree = "<group>"; };
 		F11EFD6F1A34927B00C1D274 /* ImageMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageView.swift; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				F13F96371A2B06CD001057B0 /* Command.swift */,
 				F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */,
 				F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */,
+				F117EE5D1A3BD612005EB5A5 /* UserSync.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				F156E2551A2608D8002A5E5C /* module.swift in Sources */,
 				F13F960C1A2A034F001057B0 /* MessagesComposerTextView.swift in Sources */,
 				F11EFD6C1A3469CB00C1D274 /* ThumbImage.swift in Sources */,
+				F117EE5E1A3BD612005EB5A5 /* UserSync.swift in Sources */,
 				F11EFD6E1A34827B00C1D274 /* MessgeContainter.swift in Sources */,
 				F13F96191A2A119A001057B0 /* ContactViewCell.swift in Sources */,
 			);

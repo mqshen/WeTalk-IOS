@@ -128,4 +128,25 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
             NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
         }
     }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: NSInteger) -> UIView {
+        let label = UILabel(frame: CGRectMake(0, 0, tableView.frame.size.width, 20))
+        label.font = UIFont.systemFontOfSize(10)
+        let session = Session.sharedInstance
+        if session.groups.count > 0 && section == 0 {
+            label.text = "    群聊"
+        }
+        else {
+            label.text = "    好友"
+        }
+        return label
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection: NSInteger) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(tableView: UITableView, heightForFooterInSection: NSInteger) -> CGFloat {
+        return CGFloat.min
+    }
 }

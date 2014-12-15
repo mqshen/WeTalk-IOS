@@ -26,21 +26,26 @@ class PersistenceProcessor
             
             let sql_stmt = "CREATE TABLE IF NOT EXISTS FRIEND (id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Type INTEGER)"
             if sqlite3_exec(db, sql_stmt, nil, nil, nil) != SQLITE_OK {
-                println("create table success")
+                println("create table friend failed")
             }
-            let grop_stmt = "CREATE TABLE IF NOT EXISTS FRIEND (id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Type INTEGER)"
+            let grop_stmt = "CREATE TABLE IF NOT EXISTS GroupTable (Id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Type INTEGER)"
             if sqlite3_exec(db, grop_stmt , nil, nil, nil) != SQLITE_OK {
-                println("create table success")
+                println("create table group failed")
+            }
+            
+            let friend_ext_stmt = "CREATE TABLE IF NOT EXISTS FriendExt (Id TEXT PRIMARY KEY,Remark TEXT, GroupMember TEXT)"
+            if sqlite3_exec(db, friend_ext_stmt, nil, nil, nil) != SQLITE_OK {
+                println("create table friend ext failed")
             }
             
             let session_stmt = "CREATE TABLE IF NOT EXISTS Session (Type TEXT PRIMARY KEY, Value TEXT)"
             if sqlite3_exec(db, session_stmt, nil, nil, nil) != SQLITE_OK {
-                println("create table success")
+                println("create table session failed")
             }
             
-            let insert_sql = "INSERT INTO Session(Type, Value) VALUES ('syncKey',  '0')"
+            let insert_sql = "INSERT INTO Session(Type, Value) VALUES ('syncKey',  '-1')"
             if sqlite3_exec(db, insert_sql, nil, nil, nil) != SQLITE_OK {
-                println("insert ")
+                println("failed ")
             }
             
         }
@@ -52,7 +57,34 @@ class PersistenceProcessor
     }
     
     func addGroup(group: Group) {
-        database.execute("INSERT INTO Group(id, UserName, NickName, Avatar, Type) VALUES ('\(group.id)',  '\(group.name)',  '\(group.name)', '\(group.avatar)', '1' )")
+        database.execute("INSERT INTO GroupTable(Id, UserName, NickName, Avatar, Type) VALUES ('\(group.id)',  '\(group.name)',  '\(group.name)', '\(group.avatar)', '1' )")
+        
+        let memebers = ";".join(group.members)
+        
+        database.execute("INSERT INTO FriendExt(Id, GroupMember) VALUES ('\(group.id)',  '\(memebers)')")
+    }
+    
+    func getGroup() -> Array<Group> {
+        let data = database.query("SELECT Id, UserName, NickName, Avatar, Type FROM GroupTable")
+        
+        var users = [Group]()
+        for row in data {
+            let id = row["Id"]?.asString()
+            let userName = row["UserName"]?.asString()
+            let nickName = row["NickName"]?.asString()
+            let avatar = row["Avatar"]?.asString()
+            let userType = row["Type"]?.asInt()
+            
+            var memebers = [String]()
+            let memberData = database.query("SELECT GroupMember FROM FriendExt where id = '\(id!)'")
+            if let memberRow = memberData.first? {
+                let member = memberRow["GroupMember"]?.asString()
+                memebers = split(member!) {$0 == ";"}
+            }
+            
+            users.append( Group(id: id!, name: userName!, members: memebers))
+        }
+        return users
     }
     
     func deleteFriend(friend: User) {
@@ -60,7 +92,7 @@ class PersistenceProcessor
     }
     
     func getFriends() -> Array<User> {
-        let data = database.query("SELECT UserName, NickName, Avatar, Type FROM FRIEND")
+        let data = database.query("SELECT Id, UserName, NickName, Avatar, Type FROM FRIEND")
         
         var users = [User]()
         for row in data {
@@ -74,17 +106,17 @@ class PersistenceProcessor
         return users
     }
     
-    func getSyncKey() -> String {
+    func getSyncKey() -> Int64 {
         let data = database.query("SELECT Value FROM Session WHERE Type = 'syncKey'")
         if let row = data.first? {
-            if let syncKey = row["Value"]?.asString() {
+            if let syncKey = row["Value"]?.asInt64() {
                 return syncKey
             }
         }
-        return "0"
+        return -1
     }
     
-    func updateSyncKey(syncKey: Int) {
+    func updateSyncKey(syncKey: Int64) {
         database.execute("UPDATE Session SET Value = '\(syncKey)' WHERE Type = 'syncKey'")
     }
     

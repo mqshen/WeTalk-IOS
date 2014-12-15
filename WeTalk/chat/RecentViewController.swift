@@ -86,7 +86,12 @@ class RecentViewController: UITableViewController
         //let id = self.chats[indexPath.row].0
         if let user = Session.sharedInstance.getUserById(item.0, userType: item.1) {
             cell?.textLabel?.text = user.nick
-            cell?.setAvatar(user.avatar)
+            if user.userType == .User {
+                cell?.setAvatar(user.avatar)
+            }
+            else {
+                cell?.swImageView.image = UIImage(named: "room@2x.png")
+            }
         }
         
         if let message = self.chats[indexPath.row].2? {

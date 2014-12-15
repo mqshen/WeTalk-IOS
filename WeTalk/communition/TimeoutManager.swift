@@ -48,7 +48,7 @@ class TimeoutManager {
             let msgTimeOut = command.timestamp + Singleton.MESSAGE_TIMEOUT_SEC
             if (timeNow >= msgTimeOut) {
                 println("timeout time is \(msgTimeOut),msg id is \(command.seqNo)")
-                
+                self.removeCommand(command)
                 switch(command) {
                 case let message as Message:
                     Session.sharedInstance.packageProcessors["3:0"]?.timeoutHandler(message)

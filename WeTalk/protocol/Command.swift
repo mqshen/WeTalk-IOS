@@ -60,7 +60,7 @@ class UserAuth : Serializable, TimeoutCheckable {
 class LoginProcessor: Command {
     
     func responseKey() -> String {
-        return "1:0"
+        return "1:1"
     }
     
     func handle(json: JSON) {
@@ -77,7 +77,7 @@ class LoginProcessor: Command {
     }
 }
 
-class ContactsRefresh: Serializable,TimeoutCheckable {
+class ContactsRefresh: Serializable, TimeoutCheckable {
     var seqNo: String = Session.sharedInstance.messageId
     var timestamp = Int64(NSDate().timeIntervalSince1970 * 1000)
     
@@ -92,7 +92,6 @@ class ContactsRefresh: Serializable,TimeoutCheckable {
     func packageData() -> NSString {
         return "5:1:" + self.toJsonString()
     }
-    
 }
 
 class MessageReceiveProcessor: Command {
