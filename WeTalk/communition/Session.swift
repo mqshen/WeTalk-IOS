@@ -191,9 +191,9 @@ class Session: TcpClientDelegate {
         connection.writeString(auth.packageData())
     }
     
-    func sendMessage(message: Message) {
-        TimeoutManager.sharedInstance.addCommand(message)
-        connection.writeString(message.packageData())
+    func sendMessage(command: TimeoutCheckable) {
+        TimeoutManager.sharedInstance.addCommand(command)
+        connection.writeString(command.packageData())
     }
     
     func createGroup(name: String, members: [String]) {
@@ -229,5 +229,9 @@ class Session: TcpClientDelegate {
             }
         }
         return nil
+    }
+    
+    func addProcessor(processor: Command) {
+        packageProcessors[processor.responseKey()] = processor
     }
 }

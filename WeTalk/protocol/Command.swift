@@ -25,6 +25,7 @@ func showError(message: String) {
 protocol TimeoutCheckable {
     var seqNo: String {get}
     var timestamp: Int64 {get}
+    func packageData() -> NSString
 }
 protocol Command {
     
@@ -69,6 +70,9 @@ class LoginProcessor: Command {
         if let user = json["user"].toObject("User") as? User {
             let session = Session.sharedInstance
             session.user = user
+            
+            let processor = FriendAddProcessor()
+            session.addProcessor(processor)
         }
     }
     

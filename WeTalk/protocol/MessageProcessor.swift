@@ -20,6 +20,7 @@ class MessageProcessor: Command {
     }
     
     func handle(json: JSON) {
+        commandResponseArrived(json)
         let m = json.toObject("Message")
         if let message = m as? Message {
             viewController.receiveMessage(message)

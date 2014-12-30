@@ -167,12 +167,23 @@ class RecentViewController: UITableViewController
     }
     
     func showAddChat() {
-        let imageButton = ImageButton(frame: CGRectMake(5, 5, 70, 40),
-            image: UIImage(named: "tabbar_mainframe.png")!, text: "发起群聊", textColor:  UIColor.whiteColor(), vertical: false)
-        imageButton.textLabel.font = UIFont.systemFontOfSize(9)
-        imageButton.addTarget(self, action: "doAddGroupChat", forControlEvents:UIControlEvents.ValueChanged)
         self.toolView = PopupView(frame: CGRectMake(260, 0, 80, 150))
-        self.toolView?.addSubview(imageButton)
+        
+        let groupButton = ImageButton(frame: CGRectMake(5, 5, 70, 40),
+            image: UIImage(named: "create_group.png")!, text: "发起群聊", textColor:  UIColor.whiteColor(), vertical: false)
+        groupButton.textLabel.font = UIFont.systemFontOfSize(9)
+        groupButton.addTarget(self, action: "doAddGroupChat", forControlEvents:UIControlEvents.ValueChanged)
+        
+        self.toolView?.addSubview(groupButton)
+        
+        
+        let addButton = ImageButton(frame: CGRectMake(5, 45, 70, 40),
+            image: UIImage(named: "add_friend.png")!, text: "添加朋友", textColor:  UIColor.whiteColor(), vertical: false)
+        addButton.textLabel.font = UIFont.systemFontOfSize(9)
+        addButton.addTarget(self, action: "doAddFriend", forControlEvents:UIControlEvents.ValueChanged)
+        self.toolView?.addSubview(addButton)
+        
+        
         self.toolView?.popup()
     }
     
@@ -180,6 +191,15 @@ class RecentViewController: UITableViewController
         self.toolView?.hide()
         
         let vc = UserSelectViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        self.presentViewController(navVC, animated: true, completion: nil)
+    }
+    
+    
+    func doAddFriend() {
+        self.toolView?.hide()
+        
+        let vc = FriendAddViewController()
         let navVC = UINavigationController(rootViewController: vc)
         self.presentViewController(navVC, animated: true, completion: nil)
     }

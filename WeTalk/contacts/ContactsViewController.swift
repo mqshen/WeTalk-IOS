@@ -69,18 +69,13 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let session = Session.sharedInstance
-        if session.groups.count > 0 {
-            return 2
-        }
-        else {
-            return 1
-        }
+        return 2
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let session = Session.sharedInstance
-        if session.groups.count > 0 && section == 0 {
-            return session.groups.count
+        if section == 0 {
+            return 2
             
         }
         return session.friends.count
@@ -94,10 +89,15 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
             //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        if session.groups.count > 0 && indexPath.section == 0 {
-            let group = session.groups[indexPath.row]
-            cell?.swImageView.image = UIImage(named: "room@2x.png")
-            cell?.textLabel?.text = group.name
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                cell?.swImageView.image = UIImage(named: "room@2x.png")
+                cell?.textLabel?.text = "新的朋友"
+            }
+            else {
+                cell?.swImageView.image = UIImage(named: "room@2x.png")
+                cell?.textLabel?.text = "群聊"
+            }
         }
         else {
             let user = session.friends[indexPath.row]
@@ -119,10 +119,16 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let session = Session.sharedInstance
-        if session.groups.count > 0 && indexPath.section == 0 {
-            var user = session.groups[indexPath.row]
-            NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let vc = FriendAddRequestViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
+//        else if session.groups.count > 0 && indexPath.section == 0 {
+//            var user = session.groups[indexPath.row]
+//            NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
+//        }
         else {
             var user = session.friends[indexPath.row]
             NSNotificationCenter.defaultCenter().postNotificationName(StartChatNotification, object: nil, userInfo: ["user":user])
@@ -133,8 +139,7 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
         let label = UILabel(frame: CGRectMake(0, 0, tableView.frame.size.width, 20))
         label.font = UIFont.systemFontOfSize(10)
         let session = Session.sharedInstance
-        if session.groups.count > 0 && section == 0 {
-            label.text = "    群聊"
+        if section == 0 {
         }
         else {
             label.text = "    好友"
@@ -142,7 +147,10 @@ class ContactsViewController: UITableViewController, UITableViewDataSource, UITa
         return label
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection: NSInteger) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: NSInteger) -> CGFloat {
+        if(section == 0) {
+            return CGFloat.min
+        }
         return 20
     }
     

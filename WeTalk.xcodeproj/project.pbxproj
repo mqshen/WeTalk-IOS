@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F104CD311A3EBEC4002C1578 /* add_friend_searchicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F104CD301A3EBEC4002C1578 /* add_friend_searchicon@2x.png */; };
+		F104CD331A3EC32C002C1578 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F104CD321A3EC32C002C1578 /* FriendSearchViewController.swift */; };
 		F117EE5E1A3BD612005EB5A5 /* UserSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = F117EE5D1A3BD612005EB5A5 /* UserSync.swift */; };
 		F11EFD6C1A3469CB00C1D274 /* ThumbImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */; };
 		F11EFD6E1A34827B00C1D274 /* MessgeContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */; };
@@ -66,9 +68,14 @@
 		F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */; };
 		F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25A1A260A02002A5E5C /* LoginModule.swift */; };
 		F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25C1A261088002A5E5C /* Deserializable.swift */; };
+		F160D93D1A3FC31C0084D02D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F160D93C1A3FC31C0084D02D /* UserInfoViewController.swift */; };
 		F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B38781A398C10006D3AC0 /* TimeoutManager.swift */; };
+		F16F038B1A3ED180004B36E7 /* FriendProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */; };
 		F19AAD221A3ACA3B00D9D2B0 /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */; };
 		F19F5E5D1A309C6F009445B2 /* sunflower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F19F5E5C1A309C6F009445B2 /* sunflower.jpg */; };
+		F1B1C4091A3EB426007A8CB0 /* create_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B1C4081A3EB426007A8CB0 /* create_group@2x.png */; };
+		F1B1C40B1A3EB964007A8CB0 /* FriendAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1C40A1A3EB964007A8CB0 /* FriendAddViewController.swift */; };
+		F1B1C40D1A3EB9E3007A8CB0 /* add_friend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B1C40C1A3EB9E3007A8CB0 /* add_friend@2x.png */; };
 		F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BE45A81A2D583B008AC999 /* placeholder@2x.png */; };
 		F1BE45AB1A2D5F4A008AC999 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE45AA1A2D5F4A008AC999 /* Session.swift */; };
 		F1BFC65F1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */; };
@@ -91,6 +98,7 @@
 		F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */; };
 		F1E1CB1A1A315AB0009B5CB8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB181A315AB0009B5CB8 /* camera@2x.png */; };
 		F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB191A315AB0009B5CB8 /* photo@2x.png */; };
+		F1FEF74B1A5243C100FDE564 /* FriendAddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FEF74A1A5243C100FDE564 /* FriendAddRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +128,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F104CD301A3EBEC4002C1578 /* add_friend_searchicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend_searchicon@2x.png"; sourceTree = "<group>"; };
+		F104CD321A3EC32C002C1578 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		F117EE5D1A3BD612005EB5A5 /* UserSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSync.swift; sourceTree = "<group>"; };
 		F11EFD6B1A3469CB00C1D274 /* ThumbImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbImage.swift; sourceTree = "<group>"; };
 		F11EFD6D1A34827B00C1D274 /* MessgeContainter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessgeContainter.swift; sourceTree = "<group>"; };
@@ -182,9 +192,14 @@
 		F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F156E25A1A260A02002A5E5C /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		F156E25C1A261088002A5E5C /* Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializable.swift; sourceTree = "<group>"; };
+		F160D93C1A3FC31C0084D02D /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		F16B38781A398C10006D3AC0 /* TimeoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutManager.swift; sourceTree = "<group>"; };
+		F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProcessor.swift; sourceTree = "<group>"; };
 		F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
 		F19F5E5C1A309C6F009445B2 /* sunflower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunflower.jpg; sourceTree = "<group>"; };
+		F1B1C4081A3EB426007A8CB0 /* create_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create_group@2x.png"; sourceTree = "<group>"; };
+		F1B1C40A1A3EB964007A8CB0 /* FriendAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddViewController.swift; sourceTree = "<group>"; };
+		F1B1C40C1A3EB9E3007A8CB0 /* add_friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_friend@2x.png"; sourceTree = "<group>"; };
 		F1BE45A81A2D583B008AC999 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
 		F1BE45AA1A2D5F4A008AC999 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F1BFC65B1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SenderAppNodeBkg_HL@2x.png"; sourceTree = "<group>"; };
@@ -206,6 +221,7 @@
 		F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		F1E1CB181A315AB0009B5CB8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		F1E1CB191A315AB0009B5CB8 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@2x.png"; sourceTree = "<group>"; };
+		F1FEF74A1A5243C100FDE564 /* FriendAddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +379,7 @@
 		F13F96251A2AE7C7001057B0 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				F104CD301A3EBEC4002C1578 /* add_friend_searchicon@2x.png */,
 				F19F5E5C1A309C6F009445B2 /* sunflower.jpg */,
 				F14083381A2DB1CF008EAD35 /* user_placeholder@2x.png */,
 				F1BE45A81A2D583B008AC999 /* placeholder@2x.png */,
@@ -385,6 +402,7 @@
 				F14AB4931A2E0BE10082CECC /* MessageProcessor.swift */,
 				F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */,
 				F117EE5D1A3BD612005EB5A5 /* UserSync.swift */,
+				F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -392,6 +410,8 @@
 		F156E2181A26044F002A5E5C /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				F1B1C40C1A3EB9E3007A8CB0 /* add_friend@2x.png */,
+				F1B1C4081A3EB426007A8CB0 /* create_group@2x.png */,
 				F19AAD211A3ACA3B00D9D2B0 /* error@2x.png */,
 				F13F7BDC1A381AFB0099FC67 /* bubble_min_HL@2x.png */,
 				F13F7BDD1A381AFB0099FC67 /* tabbar_mainframe@2x.png */,
@@ -422,6 +442,10 @@
 			children = (
 				F13F96161A2A0FAA001057B0 /* ContactsViewController.swift */,
 				F13F96181A2A119A001057B0 /* ContactViewCell.swift */,
+				F1B1C40A1A3EB964007A8CB0 /* FriendAddViewController.swift */,
+				F104CD321A3EC32C002C1578 /* FriendSearchViewController.swift */,
+				F160D93C1A3FC31C0084D02D /* UserInfoViewController.swift */,
+				F1FEF74A1A5243C100FDE564 /* FriendAddRequestViewController.swift */,
 			);
 			path = contacts;
 			sourceTree = "<group>";
@@ -555,7 +579,9 @@
 				F1288DC21A24525B007B009C /* Main.storyboard in Resources */,
 				F1BE45A91A2D583B008AC999 /* placeholder@2x.png in Resources */,
 				F1BFC65F1A35691500BAC359 /* SenderAppNodeBkg_HL@2x.png in Resources */,
+				F1B1C4091A3EB426007A8CB0 /* create_group@2x.png in Resources */,
 				F14083371A2DB144008EAD35 /* bubble_min@2x.png in Resources */,
+				F104CD311A3EBEC4002C1578 /* add_friend_searchicon@2x.png in Resources */,
 				F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */,
 				F1BFC6601A35691500BAC359 /* SenderAppNodeBkg@2x.png in Resources */,
 				F1288DC71A24525B007B009C /* LaunchScreen.xib in Resources */,
@@ -570,6 +596,7 @@
 				F13F96321A2AE7C7001057B0 /* tabbar_mainframe@2x.png in Resources */,
 				F13F96341A2AE7C7001057B0 /* tabbar_me@2x.png in Resources */,
 				F1BFC6621A35691500BAC359 /* SenderVoiceNodeBkgHL@2x.png in Resources */,
+				F1B1C40D1A3EB9E3007A8CB0 /* add_friend@2x.png in Resources */,
 				F13F96331A2AE7C7001057B0 /* tabbar_mainframeHL@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CFC4611A3879EF0077A2F0 /* Group.swift in Sources */,
+				F160D93D1A3FC31C0084D02D /* UserInfoViewController.swift in Sources */,
 				F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */,
 				F13F7BDB1A381A970099FC67 /* ImageButton.swift in Sources */,
 				F1DBD4CE1A368D30002A4A79 /* Photo.swift in Sources */,
@@ -598,10 +626,14 @@
 				F13F96021A29FB99001057B0 /* RecentViewController.swift in Sources */,
 				F1DBD4CC1A368C0E002A4A79 /* PhotoBrowser.swift in Sources */,
 				F1288DE11A2455C5007B009C /* InputFieldCell.swift in Sources */,
+				F104CD331A3EC32C002C1578 /* FriendSearchViewController.swift in Sources */,
+				F1B1C40B1A3EB964007A8CB0 /* FriendAddViewController.swift in Sources */,
 				F1DB77171A2FFF7100760486 /* QNCrc32.swift in Sources */,
 				F14083331A2DA2DF008EAD35 /* TimeAgo.swift in Sources */,
 				F13F7BE11A382B650099FC67 /* UserSelectViewController.swift in Sources */,
+				F16F038B1A3ED180004B36E7 /* FriendProcessor.swift in Sources */,
 				F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */,
+				F1FEF74B1A5243C100FDE564 /* FriendAddRequestViewController.swift in Sources */,
 				F13F96151A2A0F66001057B0 /* MessageTextView.swift in Sources */,
 				F13F96171A2A0FAA001057B0 /* ContactsViewController.swift in Sources */,
 				F1288DBF1A24525B007B009C /* ViewController.swift in Sources */,
