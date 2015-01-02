@@ -48,7 +48,7 @@ class PersistenceProcessor
                 println("failed ")
             }
             
-            let add_stmt = "CREATE TABLE IF NOT EXISTS REQUESTFRIEND (id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Greeting TEXT, Type INTEGER)"
+            let add_stmt = "CREATE TABLE IF NOT EXISTS REQUESTFRIEND (id TEXT PRIMARY KEY,UserName TEXT , NickName TEXT, Avatar TEXT, Greeting TEXT, Type INTEGER, Accept INTEGER)"
             if sqlite3_exec(db, add_stmt, nil, nil, nil) != SQLITE_OK {
                 println("create table request friend failed")
             }
@@ -56,7 +56,27 @@ class PersistenceProcessor
     }
     
     func addFriend(friend: User) {
-        database.execute("INSERT INTO FRIEND(id, UserName, NickName, Avatar, Type) VALUES ('\(friend.id)',  '\(friend.name)',  '\(friend.nick)', '\(friend.avatar)', '\(friend.userType.rawValue)' )")
+        if let user = getFriendById(friend.id) {
+            database.execute("UPDATE FRIEND SET UserName = '\(friend.name)', NickName = '\(friend.nick)', Avatar = '\(friend.avatar)', Type = '\(friend.userType.rawValue)' WHERE Id = '\(friend.id)'")
+            
+        }
+        else {
+            database.execute("INSERT INTO FRIEND(Id, UserName, NickName, Avatar, Type) VALUES ('\(friend.id)',  '\(friend.name)',  '\(friend.nick)', '\(friend.avatar)', '\(friend.userType.rawValue)' )")
+        }
+    }
+    
+    func getFriendById(id: String) -> User? {
+        let data = database.query("SELECT Id, UserName, NickName, Avatar, Type FROM FRIEND WHERE id = '\(id)'")
+        
+        if let row = data.first? {
+            let id = row["id"]?.asString()
+            let userName = row["UserName"]?.asString()
+            let nickName = row["NickName"]?.asString()
+            let avatar = row["Avatar"]?.asString()
+            let userType = row["Type"]?.asInt()
+            return User(id: id!, name: userName!, nick: nickName!, avatar: avatar!, userType: UserType(rawValue: userType!)!)
+        }
+        return nil
     }
     
     func addGroup(group: Group) {
@@ -232,10 +252,10 @@ class PersistenceProcessor
         }
     }
     
-    func getRequestFriend() -> [(User, String)] {
-        let data = database.query("SELECT Id, UserName, NickName, Avatar, Type, Greeting FROM REQUESTFRIEND")
+    func getRequestFriend() -> [(User, String, Int)] {
+        let data = database.query("SELECT Id, UserName, NickName, Avatar, Type, Greeting, Accept FROM REQUESTFRIEND")
         
-        var users = [(User, String)]()
+        var users = [(User, String, Int)]()
         for row in data {
             let id = row["id"]?.asString()
             let userName = row["UserName"]?.asString()
@@ -243,9 +263,10 @@ class PersistenceProcessor
             let avatar = row["Avatar"]?.asString()
             let userType = row["Type"]?.asInt()
             let greeting = row["Greeting"]?.asString()
+            let accept = row["Accept"]?.asInt()
             
             let user = User(id: id!, name: userName!, nick: nickName!, avatar: avatar!, userType: UserType(rawValue: userType!)!)
-            let element: (User, String) = (user, greeting!)
+            let element: (User, String, Int) = (user, greeting!, accept!)
             users.append( element)
         }
         return users
@@ -253,6 +274,10 @@ class PersistenceProcessor
     
     
     func addRequestFriend(user: User, greeting: String) {
-        database.execute("INSERT INTO REQUESTFRIEND(id, UserName, NickName, Avatar, Greeting, Type) VALUES ('\(user.id)',  '\(user.name)',  '\(user.nick)', '\(user.avatar)', '\(greeting)', '\(user.userType.rawValue)')")
+        database.execute("INSERT INTO REQUESTFRIEND(id, UserName, NickName, Avatar, Greeting, Type, Accept) VALUES ('\(user.id)',  '\(user.name)',  '\(user.nick)', '\(user.avatar)', '\(greeting)', '\(user.userType.rawValue)', 0)")
+    }
+    
+    func updateRequestFriend(user: User, accept: Int) {
+        database.execute("UPDATE REQUESTFRIEND SET Accept = \(accept) where Id = '\(user.id)' ")
     }
 }

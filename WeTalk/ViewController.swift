@@ -70,8 +70,8 @@ class ViewController: FormViewController, FormViewControllerDelegate {
         if (didSelectRowDescriptor.rowType == .Button) {
             let session = Session.sharedInstance
             //session.login("goldratio87@gmail.com", password: "f2720188fc444312d7dec4c3bb82f438")
-            //session.login("mqshen@126.com", password: "f2720188fc444312d7dec4c3bb82f438")
-            session.login("test22@126.com", password: "f2720188fc444312d7dec4c3bb82f438")
+            session.login("mqshen@126.com", password: "f2720188fc444312d7dec4c3bb82f438")
+            //session.login("test22@126.com", password: "f2720188fc444312d7dec4c3bb82f438")
         }
     }
 

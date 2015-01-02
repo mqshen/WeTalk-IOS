@@ -54,6 +54,19 @@ class FriendAddViewController:  UITableViewController, UITableViewDataSource, UI
         
         
         self.searchController = UISearchDisplayController(searchBar:self.searchBar, contentsController:self)
+        
+        
+        
+        let chatButton = UIBarButtonItem(title: "取消",
+            style: UIBarButtonItemStyle.Plain,
+            target: self,
+            action: "doCancel")
+        
+        self.navigationItem.leftBarButtonItem = chatButton
+    }
+    
+    func doCancel() {
+        self.dismissViewControllerAnimated(true, completion:nil)
     }
     
     func receiveContacts(contacts: Array<User>) {

@@ -130,13 +130,10 @@ class Group : Serializable, Chatable
         super.init()
     }
     
-    
-    
     //    func toJson() -> String {
     //        return "{\"fromUserName\": \"\(fromUserName)\", \"toUserName\": \"\(toUserName)\",\"type\": \(type),\"content\": \"\(content)\",\"clientMsgId\": \(clientMsgId), \"timestamp\": \(createTime)}"
     //    }
     //
-    
     // func toDictionary() ->
 //    override func toDictionary() -> NSMutableDictionary {
 //        var modelDictionary = super.toDictionary()

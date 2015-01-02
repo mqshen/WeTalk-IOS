@@ -71,7 +71,7 @@ class LoginProcessor: Command {
             let session = Session.sharedInstance
             session.user = user
             
-            let processor = FriendAddProcessor()
+            let processor = FriendOperateProcessor()
             session.addProcessor(processor)
         }
     }

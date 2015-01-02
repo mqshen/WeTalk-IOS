@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 import SWWebImage
 
-class UserAddRequest: Serializable, TimeoutCheckable
+public enum UserOperate: Int {
+    case Add, ReceiveAdd, Accept, ReceiveAccept, Reject, ReceiveReject
+}
+
+class UserOperateRequest: Serializable, TimeoutCheckable
 {
     var id: String
     var seqNo: String
     var greeting: String
+    var operate: UserOperate = .Add
     var timestamp: Int64  = Int64(NSDate().timeIntervalSince1970 * 1000)
     
     required init(json: JSON) {
@@ -31,20 +36,26 @@ class UserAddRequest: Serializable, TimeoutCheckable
         super.init()
     }
     
-    init(id: String) {
+    init(id: String, operate: UserOperate) {
         self.id = id
         self.greeting = ""
         self.seqNo = Session.sharedInstance.messageId
+        self.operate = operate
         super.init()
     }
     
     func packageData() -> NSString {
-        return "5:6:" + self.toJsonString()
+        return "5:3:" + self.toJsonString()
     }
     
+    override func toDictionary() -> NSMutableDictionary {
+        var modelDictionary = super.toDictionary()
+        modelDictionary.setValue(operate.rawValue, forKey: "operate")
+        return modelDictionary
+    }
 }
 
-class UserInfoViewController: UITableViewController {
+class UserInfoViewController: UITableViewController, FriendOperateDelegate {
     var user: User?
     
     override init(style: UITableViewStyle = UITableViewStyle.Plain) {
@@ -83,9 +94,7 @@ class UserInfoViewController: UITableViewController {
             headView.addSubview(swImageView)
             headView.addSubview(nickLabel)
             
-            
             self.tableView.tableHeaderView = headView
-            
             
             let footerView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 60))
             let button = UIButton(frame: CGRectMake(10, 20, self.view.frame.size.width - 20, 40))
@@ -96,6 +105,19 @@ class UserInfoViewController: UITableViewController {
             button.addTarget(self, action:"addFriend", forControlEvents:.TouchUpInside)
             self.tableView.tableFooterView = footerView
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let session = Session.sharedInstance
+        session.setFriendOperateViewController(self)
+    }
+    
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        let session = Session.sharedInstance
+        session.setFriendOperateViewController(nil)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,15 +145,32 @@ class UserInfoViewController: UITableViewController {
     
     func addFriend() {
         
-        let userAdd = UserAddRequest(id: self.user!.id)
+        let userAdd = UserOperateRequest(id: self.user!.id, operate: .Add)
         let session = Session.sharedInstance
-        let processor = FriendProcessor(viewController: self)
-        session.addProcessor(processor)
+        //let processor = FriendOperateProcessor(viewController: self)
+        //session.addProcessor(processor)
         session.sendMessage(userAdd)
     }
     
     func addSuccess() {
         let view = UIAlertView(title: "提示", message: "添加成功", delegate: nil, cancelButtonTitle:"确定")
         view.show()
+    }
+    
+    func friendAddSuccess(user: User, greeting: String) {
+        let view = UIAlertView(title: "提示", message: "添加成功", delegate: nil, cancelButtonTitle:"确定")
+        view.show()
+    }
+    
+    func friendReceiveAddSuccess(user: User, greeting: String) {
+        
+    }
+    
+    func friendAcceptSuccess(user: User, greeting: String) {
+        
+    }
+    
+    func friendReceiveAcceptSuccess(user: User, greeting: String) {
+        
     }
 }

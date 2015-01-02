@@ -98,6 +98,7 @@
 		F1DBD4D01A36966B002A4A79 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */; };
 		F1E1CB1A1A315AB0009B5CB8 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB181A315AB0009B5CB8 /* camera@2x.png */; };
 		F1E1CB1B1A315AB0009B5CB8 /* photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1E1CB191A315AB0009B5CB8 /* photo@2x.png */; };
+		F1F3C2B91A52CAA00087FD3C /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F3C2B81A52CAA00087FD3C /* ButtonTableCell.swift */; };
 		F1FEF74B1A5243C100FDE564 /* FriendAddRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FEF74A1A5243C100FDE564 /* FriendAddRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -221,6 +222,7 @@
 		F1DBD4CF1A36966B002A4A79 /* PhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		F1E1CB181A315AB0009B5CB8 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		F1E1CB191A315AB0009B5CB8 /* photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo@2x.png"; sourceTree = "<group>"; };
+		F1F3C2B81A52CAA00087FD3C /* ButtonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
 		F1FEF74A1A5243C100FDE564 /* FriendAddRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendAddRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +335,7 @@
 				F13F7BD81A3812FC0099FC67 /* PopupView.swift */,
 				F13F7BDA1A381A970099FC67 /* ImageButton.swift */,
 				F13F7BE21A382B870099FC67 /* Checkbox.swift */,
+				F1F3C2B81A52CAA00087FD3C /* ButtonTableCell.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				F13F96111A2A0C75001057B0 /* MessageKeyboardController.swift in Sources */,
 				F13F7BD91A3812FC0099FC67 /* PopupView.swift in Sources */,
 				F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */,
+				F1F3C2B91A52CAA00087FD3C /* ButtonTableCell.swift in Sources */,
 				F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */,
 				F1DB77151A2FFA0200760486 /* QNUploadManager.swift in Sources */,
 				F1DB77291A30917400760486 /* File.swift in Sources */,

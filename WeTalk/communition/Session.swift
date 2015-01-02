@@ -234,4 +234,13 @@ class Session: TcpClientDelegate {
     func addProcessor(processor: Command) {
         packageProcessors[processor.responseKey()] = processor
     }
+    
+    func setFriendOperateViewController(delegate: FriendOperateDelegate?) {
+        if let processor = packageProcessors["5:3"]? {
+            if let friendProcessor = processor as? FriendOperateProcessor {
+                friendProcessor.delegate = delegate
+            }
+        }
+    }
+    
 }
