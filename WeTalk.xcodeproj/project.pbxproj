@@ -68,6 +68,7 @@
 		F156E2571A2609AB002A5E5C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */; };
 		F156E25B1A260A02002A5E5C /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25A1A260A02002A5E5C /* LoginModule.swift */; };
 		F156E25D1A261088002A5E5C /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F156E25C1A261088002A5E5C /* Deserializable.swift */; };
+		F15D7DFB1A581CD100E7B3CD /* HeartbeatProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15D7DFA1A581CD100E7B3CD /* HeartbeatProcessor.swift */; };
 		F160D93D1A3FC31C0084D02D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F160D93C1A3FC31C0084D02D /* UserInfoViewController.swift */; };
 		F16B38791A398C10006D3AC0 /* TimeoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16B38781A398C10006D3AC0 /* TimeoutManager.swift */; };
 		F16F038B1A3ED180004B36E7 /* FriendProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */; };
@@ -193,6 +194,7 @@
 		F156E2561A2609AB002A5E5C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		F156E25A1A260A02002A5E5C /* LoginModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		F156E25C1A261088002A5E5C /* Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deserializable.swift; sourceTree = "<group>"; };
+		F15D7DFA1A581CD100E7B3CD /* HeartbeatProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatProcessor.swift; sourceTree = "<group>"; };
 		F160D93C1A3FC31C0084D02D /* UserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		F16B38781A398C10006D3AC0 /* TimeoutManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutManager.swift; sourceTree = "<group>"; };
 		F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProcessor.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				F1CFC4621A3882020077A2F0 /* GroupProcessor.swift */,
 				F117EE5D1A3BD612005EB5A5 /* UserSync.swift */,
 				F16F038A1A3ED180004B36E7 /* FriendProcessor.swift */,
+				F15D7DFA1A581CD100E7B3CD /* HeartbeatProcessor.swift */,
 			);
 			path = protocol;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				F1DB77211A30360700760486 /* HttpUpload.swift in Sources */,
 				F11EFD701A34927B00C1D274 /* ImageMessageView.swift in Sources */,
 				F1288E3B1A246CB1007B009C /* TcpClient.swift in Sources */,
+				F15D7DFB1A581CD100E7B3CD /* HeartbeatProcessor.swift in Sources */,
 				F13F96111A2A0C75001057B0 /* MessageKeyboardController.swift in Sources */,
 				F13F7BD91A3812FC0099FC67 /* PopupView.swift in Sources */,
 				F13F960A1A2A0321001057B0 /* MessagesInputToolbar.swift in Sources */,

@@ -73,6 +73,10 @@ class LoginProcessor: Command {
             
             let processor = FriendOperateProcessor()
             session.addProcessor(processor)
+            
+            let heartbeatProcessor = HeartbeatProcessor()
+            session.addProcessor(heartbeatProcessor)
+            
         }
     }
     

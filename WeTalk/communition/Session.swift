@@ -196,6 +196,10 @@ class Session: TcpClientDelegate {
         connection.writeString(command.packageData())
     }
     
+    func sendString(message: String) {
+        connection.writeString(message)
+    }
+    
     func createGroup(name: String, members: [String]) {
         let group = GroupRequest(name: name, members: members)
         connection.writeString(group.packageData())
